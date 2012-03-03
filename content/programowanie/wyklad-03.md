@@ -1,0 +1,179 @@
+---
+title: Rozszerzenia modelu Prologa
+description: Odcięcia, arytmetyka, wejście/wyjście
+---
+
+# Rozszerzenia modelu Prologa
+
+Są ciągi predykatów i ciągi celów. No i Prolog móżdży (unifikacją) nad pierwszym celem z ciągu przy użyciu predykatów w kolejności. Tyle przynajmniej zdążyliśmy się dowiedzieć wcześniej.
+
+Okazuje się, że ten model jest za prosty, żeby dało się cokolwiek sensownego robić.
+Rozszerzymy go, by pozwalał na takie cuda jak wejście/wyjście, czy arytmetyka i w efekcie w programie prologowym nie widać, że jest napisany w Prologu. 
+
+Prolog ma mechanizm, który pozwala na jakby pominięcie ścieżki, która z góry skazana jest na niepowodzenie / zapętlenie. Przez to psuje się nieco deklaratywność, co jest co najmniej nieeleganckie.
+
+## Odcięcie
+Nazwa mechanizmu odcięcia jest adekwatna, bo niejako _odcina_ gałęzie.
+
+> Okazuje się, że Prolog nie robi pełnej unifikacji, bo jest powolna. Większość implementacji robi unifikację bez sprawdzenia, czy X występuje w termie.
+
+> Prologowe drzewo poszukiwań przypomina znane już z WDI drzewo wywołań rekurencyjnych.
+
+Do tego celu służy bardzo specjalny predykat o bardzo specjalnej nazwie. `!/0`
+
+Lokalnie działa on jak predykat `true/0`. ALE on potrafi zmodyfikować działanie programu w innych gałęziach drzewa. Dokładniej to odcina on wszystkie niesprawdzone gałęzie w wyższych poziomach drzewa.
+
+### Przykład
+
+Weźmy predykat `append/3` zdefiniowany
+    
+    #!prolog
+    append([], X, X).
+    append([H|T], X, [H|S]) :-
+        append(T, X, S).
+
+Co się stanie, jak zmienimy 1. linię definicje na taką: `append([], X, X) :- !.`?
+
+      append([1,2], [3,4,5], X).
+     /           \
+    :(      append([2], [3,4,5], S1).
+           /        \
+          :(        append([], [3,4,5], S2).
+                   /   X 
+                  !
+                  |
+                  :)
+
+Czyli Prolog skończy móżdżyć po spełnieniu pierwszego celu.
+
+Czasami to nie jest to, czego oczekujemy. Robiąc `append(X, Y, [1,2,3])` dostaniemy tylko jeden wynik, a tak naprawdę jest ich więcej.
+
+To nam trochę utrudnia analizę działania programów, bo trzeba mieć pojęcie, które gałęzie znikną.
+
+## Arytmetyka
+
+Prolog, mimo że traktuje liczby trochę bardziej specjalnie niż atomy, nie umie liczyć tak, jak do tej pory robiliśmy.
+
+    #!prolog
+    ?- 1+1 = 2.
+    false.
+
+To oczywiste, bo Prolog jest głupi i robi twardą unifikację, która nie ma szans powodzenia. Jednak istnieje mechanizm, który pozwala Prologowi liczyć.
+
+Jego działanie polega tym, że _struktury arytmetyczne_ zamieniane są na ich wyniki używając procesora.
+
+Struktury arytmetyczne składają się z:
+
+- liczb
+- operacji arytmetycznych: `+/2`, `-/2`, `*/2`, `/ /2`, `// / 2`, `%/2`, `sin/1`, `cos/1`
+
+Istnieje predykat `is/2` który działa tak:
+
+- `t is s`
+- przekaż `s` do kalkulatora
+- wynik `n` obliczenia kalkulatora zunifikuj z `t`
+
+Przykład:
+
+    #!prolog
+    ?- 2 is 1+1.
+    true.
+
+    ?- X is 1+1.
+    false.
+
+    ?- [H|_]=[2,3], X is H+1.
+    H = 2,
+    X = 3.
+
+## Jakby jeszcze było mało list
+Jak zdefiniować predykat oznaczający długość listy `length/2`? Możemy spróbować tak:
+
+    #!prolog
+    length([],0).
+    length([_|T], N+1):- length(T, N).
+
+    ?- length([1,2,3], X).
+    X = 0+1+1+1.
+
+Słabe, spróbujmy inaczej.
+
+    #!prolog
+    length([],0).
+    length([_|T], N1):-
+        length(T, N),
+        N1 is N+1.
+
+Wygląda dobrze, **ALE TAK NIE JEST!** Okazuje się, że ten predykat działa, ale zajmuje tyle pamięci na rekordy aktywacji, ile jest elementów.
+
+Mamy więc problem z indukcją, spróbujmy ugólnić definicję.
+
+    #!prolog
+    length/3   % length(l,n,m) <=> |l|+n = m
+
+    length([], N, N).
+    length([_|T], N, M) :-
+        K is N+1,
+        length(T, K, M).
+
+    length(L,N) :- length(L, 0, N).
+
+Jako że mamy tutaj podobny problem jak z `reverse` _(patrz wykład 2)_, widać, że length ma tryb wywołania `length(+, ?)`.
+
+## Listy można filtrować
+
+    #!prolog
+    ?- filter([1, -3, -5, 7, -8, 4], X).
+    X = [1,7,4],
+    false.
+
+    filter(+,?)
+
+Filtrujemy listy tak, żeby zostały liczby dodatnie!
+    
+    #!prolog
+    filter([], []) :- !.      % odcięcie niepotrzebne, ale to za tydzień
+    filter([H|T], [H|S]) :-
+        H > 0, !,
+        filter(T, S).
+    filter([H|T], S) :-
+        H =< 0,               % to można wywalić, ale wtedy działania zależy od odcięcia
+        filter(T, S).
+
+Wiemy, że wynik filtrowania jest tylko 1, więc wszystkie wolne gałęzie są niepotrzebne.
+Dlatego są tam odcięcia.
+
+Odcięcia mogą być:
+
+- _zielone_ - nie wpływają na działanie programu
+- _czerwone_ - znacząco wpływają na działanie programu
+
+## Operacje wejścia/wyjścia
+    
+    #!prolog
+    write/1
+    read/1
+    nl/0          % nowa linia
+
+    ?- write( f(X,Y) ), nl,
+    f(X,Y)
+
+## BONUS: predykat repeat
+
+    #!prolog
+    repeat/0
+
+    repeat.
+    repeat :- repeat.
+
+Jest przykład:
+
+    ?- repeat, write(a), nl, fail.
+          /            \
+      write(a)       repeat, write(a), nl, fail.
+         |
+         nl
+         |
+         fail.
+
+Jak dobrze rozumiem, to to jest prologowe `while(true)`.

@@ -1,0 +1,139 @@
+---
+title: Wprowadzenie do Prologa
+---
+
+# Wprowadzenie do Prologa #
+
+## Predykaty ##
+- `rodzic/2`
+- `kobieta/1`
+- `matka/2`
+- `przodek/2`
+
+## Baza wiedzy ##
+
+    #!prolog
+    rodzic(marek, ola).
+    rodzic(pawel, mikolaj).
+    rodzic(ola, mikolaj).
+    rodzic(ola, ania).
+    rodzic(jan, ania).
+    kobieta(ania).
+    kobieta(ola).
+    matka(X,Y) :- rodzic(X,Y), kobieta(X).
+    przodek(X,Y) :- rodzic(X,Y).
+    przodek(X,Y) :- rodzic(X,Z), przodek(Z,Y).
+    
+## Proste rozkminy ##
+
+    #!prolog
+    ?- rodzic(ola, ania).
+    true.
+    
+    ?- rodzic(X, mikolaj).
+    X = pawel ;
+    X = ola ;
+    false.
+
+## Większe rozkminy ##
+    
+    #!prolog
+    ?- matka(X, mikolaj).
+    
+Prolog dodaje `matka(X, mikolaj)` do listy celów i unifikuje z czymś z bazy,
+w tym wypadku z `matka(X,Y) :- rodzic(X,Y), kobieta(X)`.
+
+To powoduje usunięcie `matka(X, mikolaj)` i dodanie do listy celów `rodzic(X, mikolaj)` i
+`kobieta(X)`, po czym Prolog jedzie po kolei.
+
+Na przykład: `rodzic(marek, ola)` nie unifikuje się z `rodzic(X, mikolaj)`, więc jedziemy
+dalej. Ale `rodzic(pawel, mikolaj)` unifikuje się z `rodzic(X, mikolaj)` to Prolog może
+sprawdzić, warunek następny `kobieta(X)`, ktory tym razem się rypie. No i tak dalej.
+
+W końcu udaje się.
+    
+    #!prolog
+    X = ola .
+
+## Sprawa przodków ##
+
+Wiemy, że `przodek(X,Y)` znaczy:
+
+- `rodzic(X,Y)`
+- `rodzic(X,Z), rodzic(Z,Y)`
+- i tak dalej
+
+Jest indukcja! Możemy zapisać to rekurencyjnie:
+
+    #!prolog
+    przodek(X,Y) :- rodzic(X,Y).
+    przodek(X,Y) :- rodzic(X,Z), przodek(Z,Y).
+
+Zapytajmy więc, czyim przodkiem jest Marek.
+
+    #!prolog
+    ?- przodek(marek, X).
+
+Maszyna patrzy, że można spełnić `przodek` na dwa sposoby i dodaje dwa cele z definicji.
+Jednym z nich jest `rodzic(marek, X)`.
+
+Okazuje się, że jest sukces i dostajemy `X = ola`. Wciskamy `;`, niech kmini dalej.
+Niestety Marek nie jest już bezpośrednim rodzicem nikogo innego, to zajmujemy się drugim
+celem - `rodzic(marek, Z), przodek(Z, X)`.
+
+`rodzic` jest faktem, Prolog nie dodaje więc nowego celu dla niego. Inaczej jednak sprawa
+wygląda dla `przodka`. Za `Z` podstawia `olę` i kmini nad `rodzic(ola, X)`. 
+Drzewo wychodzi duże, więc nie będe więcej pisał. To dosyć proste.
+
+Efekt jest taki:
+    
+    #!prolog
+    X = ola ;
+    X = mikolaj ;
+    X = ania ;
+    false.
+
+## Coś więcej niż atomy ##
+
+W Prologu można wprowadzać symbole, które nie są predykatami. Na przykład mamy Adama
+i Ewę. Pierwsze dziecko Adama i Ewy mogłoby być wtedy oznaczone `dziecko(1, adam, ewa)`.
+Można oczywiście komplikować:
+    
+    #!prolog
+    dziecko(
+        4,
+        dziecko(
+            3,
+            dziecko(1, adam, ewa),
+            ewa
+        ),
+        adam
+    )
+
+Dziecko jest _funktorem_, czyli takim jakby symbolem opisującym dane. W sumie atomy też
+są funktorami, tylko bez argumentów.
+
+Można zdefiniować rodzica w następujący sposób:
+    
+    #!prolog
+    rodzic(X, dziecko(_, X, _)).
+    rodzic(X, dziecko(_, _, X)).
+
+Podkreślniki to są jakby _placeholdery_ zmiennych, czyli zmienne nieistotne, nieużywane
+nigdzie indziej.
+
+Zaś dziecko to na przykład:
+    
+    #!prolog
+    dziecko(X, Y) :- rodzic(Y, X).
+
+## Bonus: można zrobić listę ##
+
+    #!prolog
+    element/2
+    pusta/0
+
+    element(
+        a,
+        element(b, pusta)
+    )

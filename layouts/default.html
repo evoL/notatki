@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @item[:title] %> - Notatki - Kokodżambo</title>
+    <link href='http://fonts.googleapis.com/css?family=Exo:200&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </head>
+  <body>
+    <div class="container cf">
+      <div class="sidebar">
+        <dl class="lectures">
+          <%= toc 'programowanie' %>
+        </dl>
+      </div>
+      <div class="main">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
