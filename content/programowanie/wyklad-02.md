@@ -43,9 +43,8 @@ Przykład drzewa:
 
     node(node(leaf, 5, leaf), 3, node(node(leaf, 1, leaf), 2, leaf)).
 
-W Prologu można budować funkcje opierając się na definicji, np.
+W Prologu można budować funkcje opierając się na definicji, takiej jak:
 
-    #!prolog
     leafcount(leaf) = 1.
     leafcount(node(t1, e, t2)) = leafcount(t1) + leafcount(t2).
 

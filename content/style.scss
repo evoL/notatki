@@ -236,3 +236,20 @@ pre code {
   padding-left: 1em;
 }
 
+/******************************************* SPECIFIC */
+
+.def { // definicje
+  background: #fff;
+  padding: 10px;
+  border: 1px solid $accent;
+  margin: $lineheight - 10px 0;
+  border-radius: 10px;
+
+  &:before {
+    content: 'Definicja';
+    float: left;
+    font-weight: bold;
+    padding: 10px;
+    margin: -10px 10px 0 -10px;
+  }
+}

@@ -26,7 +26,14 @@ compile '*' do
   if item.binary?
     # don’t filter binary items
   else
-    filter :kramdown
+    case item[:extension]
+    when 'md'
+      filter :kramdown
+    when 'haml'
+      filter :haml, :format => :html5
+    else
+      filter :erb
+    end
     filter :colorize_syntax, :default_colorizer => :pygmentsrb
     layout 'default'
   end

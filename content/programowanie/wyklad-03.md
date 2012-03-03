@@ -79,8 +79,8 @@ Przykład:
     ?- 2 is 1+1.
     true.
 
-    ?- X is 1+1.
-    false.
+    ?- 2 is X+1.
+    ERROR: is/2: Arguments are not sufficiently instantiated
 
     ?- [H|_]=[2,3], X is H+1.
     H = 2,
