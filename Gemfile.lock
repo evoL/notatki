@@ -1,0 +1,28 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    blankslate (2.1.2.4)
+    cri (2.2.0)
+    facets (2.9.3)
+    ffi (1.0.11)
+    kramdown (0.13.5)
+    nanoc (3.3.1)
+      cri (~> 2.1)
+    nokogiri (1.5.0)
+    pygments.rb (0.2.7)
+      rubypython (~> 0.5.3)
+    rubypython (0.5.3)
+      blankslate (>= 2.1.2.3)
+      ffi (~> 1.0.7)
+    sass (3.1.15)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  facets
+  kramdown
+  nanoc
+  nokogiri
+  pygments.rb
+  sass

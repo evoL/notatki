@@ -2,5 +2,6 @@
 
 Strona z moimi notatkami z wykładów postawiona na nanoc.
 
-Żeby postawić, zrób `gem install kramdown sass pygments.rb nanoc` i `nanoc compile`.
+Gemy zarządzane są przez bundlera (`gem install bundler`).
+Żeby postawić, zrób `bundle install` i `nanoc compile`.
 
