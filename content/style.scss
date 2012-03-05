@@ -80,7 +80,7 @@ code[class^=language-] {
 
 //////////////////////////////////////// HACKS & RESET
 
-h1, h2, h3, p, ul, li, dl, dt, dd, pre {
+h1, h2, h3, p, ul, ol, li, dl, dt, dd, pre {
   margin: 0;
   padding: 0;
 }
@@ -151,11 +151,11 @@ h3 {
 /*p {
   margin-bottom: $lineheight;
 }*/
-p, pre, ul {
+p, pre, ul, ol {
   margin: $lineheight 0;
 }
 
-ul {
+ul, ol {
   margin-left: 1.2em;
 }
 ul.unstyled {
@@ -238,18 +238,61 @@ pre code {
 
 /******************************************* SPECIFIC */
 
-.def { // definicje
+.special {
   background: #fff;
-  padding: 10px;
+  padding: 10px 10px 10px 100px;
   border: 1px solid $accent;
   margin: $lineheight - 10px 0;
   border-radius: 10px;
+  position: relative;
 
   &:before {
-    content: 'Definicja';
-    float: left;
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 70px;
     font-weight: bold;
     padding: 10px;
-    margin: -10px 10px 0 -10px;
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
+}
+
+.def { // definicje
+  @extend .special;
+
+  border-color: $accent;
+  &:before {
+    content: 'Definicja';
+    background: $accent;
+    color: #fff;
+  }  
+}
+
+.example { // przykłady
+  @extend .special;
+
+  border-color: $hover;
+  &:before {
+    content: 'Przykład';
+    background: $hover;
+    color: #fff;
+  }  
+}
+
+.fact { // przykłady
+  @extend .special;
+
+  border-color: $link;
+  &:before {
+    content: 'Fakt';
+    background: $link;
+    color: #fff;
+  }  
+}
+
+ol.def, ol.fact, ol.example {
+  padding-left: 120px;
 }
