@@ -24,10 +24,11 @@ Czym one się różnią? Jedne jest poprawnym programem w C, a drugie nie.
 **Język** (nad alfabetem \\(\Sigma\\)) to pewien zbiór \\( L \subseteq \Sigma^* \\).
 
 Jak w takim razie opisać języki. Dla prostych języków możemy opisać normalnie zbiory:
-\\[
+
+$$
 L_1 = \left\{ a^nb^n\ |\ n \in \mathbb{N} \right\} \\
 L_2 = \left\{ (ba)^n\ |\ n \in \mathbb{N} \right\}
-\\]
+$$
 
 Jednak dla bardziej skomplikowanych języków (jak C) byśmy się zamęczyli na śmierć.
 
@@ -58,20 +59,20 @@ Teraz tak:
 
 Przykłady gramatyk:
 
-- \\[
+- $$
 \Sigma = \{a,b\} \\
 V = {S} \\
 S \\
 P = \{ S \rightarrow \epsilon,\ S \rightarrow a S b \} \\
 L(\{\Sigma, V, S, P\}) = L_1
-\\]
-- \\[
+$$
+- $$
 \Sigma = \{a,b\} \\
 V = {S} \\
 S \\
 P = \{ S \rightarrow \epsilon,\ S \rightarrow S\ ba \} \\
 L(\{\Sigma, V, S, P\}) = L_2
-\\]
+$$
 
 ## Definicje
 
