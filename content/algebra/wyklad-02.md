@@ -1,5 +1,5 @@
 ---
-title: Grupy
+title: Grupy - ciąg dalszy, wstęp do grup permutacji
 ---
 
 ###Potegowanie
@@ -14,7 +14,7 @@ Dla  `$$ n \in Z\backslash N \ ,\n a^{n} = (a^{-1})^{-n} $$`.
 
 ###Wlasnosci potegowania
 
-	Dla $$n \in Z$$ zachodzą nastapujace wlasnosci:
+	Dla $$n \in Z$$ zachodzą następujące własnosci:
 	1) $$ a^{n+1} = a * a^{n} = a^{n} * a $$
 	2) $$ a^{n-1} = a^{-1} * a^{n} = a^{n} * a^{-1}
 	3) $$ a^{m+n} = a^{m} * a^{m} $$ - działa dla $$m,n \n Z $$

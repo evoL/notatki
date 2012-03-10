@@ -70,4 +70,5 @@ title: Grupy permutacji - ciąg dalszy
 **Definicja:**
 
 	Niech $$H\leqG$$ i G jest grupą. Wtedy:
-	1) Warstwy prawostronne H to zbiory H*g, gdzie g
+	1) Warstwy prawostronne H to zbiory H*g, gdzie g$$\in$$G, czyli H * g = { h*g : h$$\in$$H }
+	2) Warstwy prawostronne H to zbiory g*H, gdzie g$$\in$$G, czyli g * H = { g*h : h$$\in$$H }
