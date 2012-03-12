@@ -135,7 +135,7 @@ $$
 \right)
 $$
 
-Czyli np. permutacja grupy 3-elementowej $$ f: \{1,2,3\} -> {3,1,2} $$ może wyglądać tak:
+Czyli np. permutacja grupy 3-elementowej $$ f: \{1,2,3\} \rightarrow \{3,1,2\} $$ może wyglądać tak:
 
 $$
 \left(
