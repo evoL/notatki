@@ -5,6 +5,8 @@ $hover: #B5B690;
 $link: #46472B;
 $accent: #8F0853;
 
+$split-accent: #08870c;
+
 //////////////////////////////////////// TYPOGRAPHY
 $base-fontsize: 16px;
 $relative-lineheight: 1.5;
@@ -155,9 +157,18 @@ p, pre, ul, ol {
   margin: $lineheight 0;
 }
 
+li > ul, li > ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+li ol {
+  list-style-type: lower-alpha;
+}
+
 ul, ol {
   margin-left: 1.2em;
 }
+
 ul.unstyled {
   list-style: none;
   margin: 0;
@@ -238,9 +249,11 @@ pre code {
 
 /******************************************* SPECIFIC */
 
+$left-size: 90px;
+
 .special {
   background: #fff;
-  padding: 10px 10px 10px 100px;
+  padding: 10px 10px 10px ($left-size + 30px);
   border: 1px solid $accent;
   margin: $lineheight - 10px 0;
   border-radius: 10px;
@@ -251,7 +264,7 @@ pre code {
     left: -1px;
     top: 0;
     bottom: 0;
-    width: 70px;
+    width: $left-size;
     font-weight: bold;
     padding: 10px;
 
@@ -293,6 +306,21 @@ pre code {
   }  
 }
 
-ol.def, ol.fact, ol.example {
-  padding-left: 120px;
+.theorem { // przykłady
+  @extend .special;
+
+  border-color: $split-accent;
+  &:before {
+    content: 'Twierdzenie';
+    background: $split-accent;
+    color: #fff;
+  }  
+}
+
+div.def, div.example, div.fact, div.theorem {
+  & > :first-child { margin-top: 0; }
+  & > :last-child { margin-bottom: 0; }
+}
+ol.def, ol.fact, ol.example, ol.theorem {
+  padding-left: $left-size + 50px;
 }
