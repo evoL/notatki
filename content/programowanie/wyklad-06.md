@@ -1,8 +1,8 @@
 ---
-title: Wykład 6
+title: Składnia języków programowania
 ---
 
-# Wykład 6
+# Składnia języków programowania
 
 ## Wyrażenia (składnia abstrakcyjna)
 
