@@ -2,73 +2,92 @@
 title: Grupy permutacji - ciąg dalszy
 ---
 
-**Definicja:**
+# Grupy permutacji - ciąg dalszy
 
-	I. $$ f\inS_{n} $$ jest cyklem k-wyrazowym, gdy istnieją parami różne $$ a_1,\ a_2,\ ...,\ a_k\ \in \{1,2,3,...,n\} $$ takie, że $$ f\(a_{1}\) = a_{2},\ f\(a_{2}\)=a_{3},\ ...,\ f\(a_{k+1}\)=a_{a},\ f\(a_{k}\)=a_{1}.$$ oraz f(a)=a dla a$$\in$${1,2,3,...n}\{$$a_{1},a_{2},...,a_{k}$$}. Taki cykl zapisujemy jako: ($$a_1,a_2,a_3,...,a_k$$).
-	II. Cykl dwuwyrazowy nazywamy transpozycją, czyli transpozycje to cykle postaci ($$a_1,a_2$$), gdzie $$a_1 \neq a_2$$ oraz $$a_1, a_2, \in \{1,2,3,...,k\}$$.
-	III.Cykle ($$ a_1,...,a_{k_{1}} $$) i ($$ b_1,...,b_{k_{2}} $$) są rozłączne, gdy 
-	$$ \(a_1,...,a_{k_{1}} \) \bigcap \( b_1,...,b_{k_{2}} \)=\oslash$$, tzn. $$\forall_{i \in \{ 1,2,3,...,k_1 \} }, \forall_{j \in \{ 1,2,3,...,k_2\}}\ a_i \neq b_j $$.
+## Cykle i transpozycje
 
-**Fakt:**
-	
-	I. Jeśli grupa $$S_i$$ jest przemienna, to $$ S_i \cong (Z_i,+_i). $$ *sprawdzic*
-	II. Grupy $$S_n$$ dla n>2 są nieprzemienne.
-	III. Cykle rozłączne są przemienne.
+<!-- Definicja -->
+1. $$ f \in S_{n} $$ jest **cyklem k-wyrazowym**, gdy istnieją parami różne $$ a_1,\ a_2,\ ...,\ a_k \in \{1,2,3,...,n\} $$ takie, że $$ f(a_{1}) = a_{2},\ f(a_{2})=a_{3},\ ...,\ f(a_{k+1})=a_{k},\ f(a_{k})=a_{1} $$ oraz $$ f(a)=a $$ dla $$ a \in \{1,2,3,...n\} \backslash \{a_{1},a_{2},...,a_{k} \} $$.  
+Taki cykl zapisujemy jako: ($$a_1,a_2,a_3,...,a_k$$).
+2. Cykl dwuwyrazowy nazywamy **transpozycją**, czyli transpozycje to cykle postaci ($$a_1,a_2$$), gdzie $$a_1 \neq a_2$$ oraz $$a_1, a_2, \in \{1,2,3,...,k\}$$.
+3. Cykle ($$ a_1,...,a_{k_{1}} $$) i ($$ b_1,...,b_{k_{2}} $$) są **rozłączne**, gdy $$ (a_1,...,a_{k_{1}} ) \bigcap ( b_1,...,b_{k_{2}} )=\emptyset$$, tzn. $$\forall_{i \in \{ 1,2,3,...,k_1 \} }, \forall_{j \in \{ 1,2,3,...,k_2\}}\ a_i \neq b_j $$.
+{:.def}
 
-**Twierdzenie:**
+<!-- Fakt -->
+1. Jeśli grupa $$S_i$$ jest przemienna, to $$ S_i \cong (Z_i,+_i). $$  *(sprawdzić)*
+2. Grupy $$S_n$$ dla n>2 są nieprzemienne.
+3. Cykle rozłączne są przemienne.
+{:.fact}
 
-	I. Każda permutacja zapisuje się jednoznacznie ( z dokładnością do kolejności ) jako złożenia cykli rozłącznych.
-	II. Każda permutacja zapisuje się jako złożenie transpozycji (niekoniecznie rozłącznych), ale takie przedstawienie nie jest jednoznaczne.
-	III. Kazda permutacja jest złożeniem nieparzystej liczby transpozycji wyrazów sąsiednich, a więc każda permutacja jest złożeniem pewnej liczby transpozycji wyrazów sąsiednich.
+## Permutacje
 
-**Fakt:**
+<!-- Twierdzenie -->
+1. Każda permutacja zapisuje się jednoznacznie (z dokładnością do kolejności) jako złożenia cykli rozłącznych.
+2. Każda permutacja zapisuje się jako złożenie transpozycji (niekoniecznie rozłącznych), ale takie przedstawienie nie jest jednoznaczne.
+3. Każda permutacja jest złożeniem nieparzystej liczby transpozycji wyrazów sąsiednich, a więc każda permutacja jest złożeniem pewnej liczby transpozycji wyrazów sąsiednich.
+{:.theorem}
 
-	W grupie $$S_n$$:
-	I. cykl k=wyrazowy jest rzędu k.
-	II. rząd dowolnej permutacji jest najmniejszą wspólną wielokrotnością rzędów cykli z rozkładu na iloczyn cykli rozłącznych.
+<!-- Fakt -->
+<div class="fact" markdown="1">
+W grupie $$S_n$$:
 
-	Jeśli cykle rozłączne są przemienne to $$ f^{k} = \( c_1 \circ c_2 \circ c_i \)^{k} = c_{1}^{k} \circ c_{2}^{k} \circ c_{i}^{k}
+1. cykl k-wyrazowy jest rzędu k.
+2. rząd dowolnej permutacji jest najmniejszą wspólną wielokrotnością rzędów cykli z rozkładu na iloczyn cykli rozłącznych.
 
-**Definicja:**
-	
-	Weźmy dowolne $$S_n$$. Wtedy:
-	I. Elementy f(i) i f(j) dla i<j tworzą inwersję w permutacji, gdy f(i)>f(j).
-	II. f jest parzysta, gdy ma parzystą ilość inwersji
-	III. f jest nieparzysta,  gdy ma nieparzystą ilość inwersji
-	IV. W związku z tym możemy zdefiniować znak permutacji sign(f) = f jest parzysta ? 1 : -1.
+Jeśli cykle rozłączne są przemienne to $$ f^{k} = ( c_1 \circ c_2 \circ c_i )^{k} = c_{1}^{k} \circ c_{2}^{k} \circ c_{i}^{k} $$.
+</div>
 
-**Lemat:**
+<!-- Definicja -->
+<div class="def" markdown="1">	
+Weźmy dowolne $$S_n$$. Wtedy:
 
-	Niech f będzie permutacją należącą do $$S_n$$, a t transpozycją należącą do $$S_n$$. Wtedy sgn(f) = -sgn(f$$\circ$$t).
+1. Elementy $$ f(i) $$ i $$ f(j) $$ dla \\( i < j \\) tworzą **inwersję** w permutacji, gdy $$ f(i) > f(j) $$.
+2. $$f$$ jest parzysta, gdy ma parzystą ilość inwersji
+3. $$f$$ jest nieparzysta, gdy ma nieparzystą ilość inwersji
+4. W związku z tym możemy zdefiniować znak permutacji `sgn(f) = f jest parzysta ? 1 : -1`.
 
-**Lemat:**
+</div>
 
-	Niech f będzie funkcją należącą do $$S_n$$. f jest parzysta wtedy i tylko wtedy, gdy w dowolnych rozkładzie f na iloczyn trnaspozycji występuje parzysta ilość wyników.
+<!-- Lemat -->
+Niech $$f$$ będzie permutacją należącą do $$S_n$$, a $$t$$ transpozycją należącą do $$S_n$$. Wtedy $$ sgn(f) = -sgn(f \circ t) $$.
+{:.lemma}
 
-**Fakt:**
+<!-- Lemat -->
+Niech $$f$$ będzie funkcją należącą do $$S_n$$. $$f$$ jest parzysta wtedy i tylko wtedy, gdy w dowolnych rozkładzie $$f$$ na iloczyn transpozycji występuje parzysta ilość wyników.
+{:.lemma}
 
-	I. sgn: $$ S_n -> \( \{ -1, 1 \}, \circ \)$$ jest homomorfizmem, tzn. sgn(f$$\circ$$g) = sgn(f) $$\circ$$ g.
-	II. sgn($$f^{-1}$$) = sgn(f)
+<!-- Fakt -->
+1. $$ sgn: S_n \rightarrow ( \{ -1, 1 \}, \circ ) $$ jest homomorfizmem, tzn. $$ sgn(f \circ g) = sgn(f) \circ g $$.
+2. \$$ sgn(f^{-1}) = sgn(f) $$
+{:.fact}
 
-**Twierdzenie:**
+<!-- Twierdzenie -->
+Zbiór permutacji parzystych stanowi podgrupę $$S_n$$ oznaczoną przez $$A_n$$.
+{:.theorem}
 
-	Zbiór permutacji parzystych stanowi podgrupę $$S_n$$ oznaczoną przez $$A_n$$.
+<!-- Twierdzenie Cayley'a -->
+<div class="theorem" markdown="1">
+**Twierdzenie Cayley'a**  
+Każda podgrupa rzędu n jest izomorficzna z pewną podgrupą grupy $$S_n$$.
+</div>
 
-####Twierdzenie Cayley'a####
+## Warstwy
 
-	Każda podgrupa rzędu n jest izomorficzna z pewną podgrupą grupy $$S_n$$.
+<!-- Definicja -->
+<div class="def" markdown="1">
+Niech $$X,Y \subset G$$, gdzie $$g$$ jest grupą. Możemy zdefiniować:
 
-##Znowu ogólna teoria grup##
+1. \$$X*Y = \{ x*y\ :\ x \in X,\ y \in Y  \}$$
+2. \$$a*Y=\{a\}*Y=\{ a*y:\ y \in Y \}$$
+3. \$$Y*b=Y*\{b\}=\{ y*b:\ y \in Y \}$$
 
-**Definicja:**
+</div>
 
-	Niech $$X,Y \subset G$$, gdzie g jest grupą. Mozemy zdefiniować:
-	a) $$X*Y = \{ x*y\ :\ x\inX,\ y\inY  \}$$
-	b) $$a*Y=\{a\}*Y=\{ a*y:\ y\inY \}$$
-	c) $$Y*b=Y*\{b\}=\{ y*b:\ y\inY \}$$
+<!-- Definicja -->
+<div class="def" markdown="1">
+Niech $$H \leq G$$ i G jest grupą. Wtedy:
 
-**Definicja:**
+1. **Warstwy prawostronne H** to zbiory $$ H*g $$, gdzie $$ g \in G $$, czyli $$ H * g = \{ h*g\ :\ h \in H \} $$.
+2. **Warstwy prawostronne H** to zbiory $$ g*H $$, gdzie $$ g \in G $$, czyli $$ g * H = \{ g*h\ :\ h \in H \} $$.
 
-	Niech $$H\leqG$$ i G jest grupą. Wtedy:
-	1) Warstwy prawostronne H to zbiory H*g, gdzie g$$\in$$G, czyli H * g = { h*g : h$$\in$$H }
-	2) Warstwy prawostronne H to zbiory g*H, gdzie g$$\in$$G, czyli g * H = { g*h : h$$\in$$H }
+</div>

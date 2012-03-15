@@ -6,6 +6,7 @@ $link: #46472B;
 $accent: #8F0853;
 
 $split-accent: #08870c;
+$split-accent2: #a4a509;
 
 //////////////////////////////////////// TYPOGRAPHY
 $base-fontsize: 16px;
@@ -317,10 +318,21 @@ $left-size: 90px;
   }  
 }
 
-div.def, div.example, div.fact, div.theorem {
+.lemma { // przykłady
+  @extend .special;
+
+  border-color: $split-accent2;
+  &:before {
+    content: 'Lemat';
+    background: $split-accent2;
+    color: #fff;
+  }  
+}
+
+div.def, div.example, div.fact, div.theorem, div.lemma {
   & > :first-child { margin-top: 0; }
   & > :last-child { margin-bottom: 0; }
 }
-ol.def, ol.fact, ol.example, ol.theorem {
+ol.def, ol.fact, ol.example, ol.theorem, ol.lemma {
   padding-left: $left-size + 50px;
 }
