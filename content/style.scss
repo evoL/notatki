@@ -8,6 +8,8 @@ $accent: #8F0853;
 $split-accent: #08870c;
 $split-accent2: #a4a509;
 
+$conclusion: #086587;
+
 //////////////////////////////////////// TYPOGRAPHY
 $base-fontsize: 16px;
 $relative-lineheight: 1.5;
@@ -329,10 +331,21 @@ $left-size: 90px;
   }  
 }
 
-div.def, div.example, div.fact, div.theorem, div.lemma {
+.conc { // przykłady
+  @extend .special;
+
+  border-color: $conclusion;
+  &:before {
+    content: 'Wniosek';
+    background: $conclusion;
+    color: #fff;
+  }  
+}
+
+div.def, div.example, div.fact, div.theorem, div.lemma, div.conc {
   & > :first-child { margin-top: 0; }
   & > :last-child { margin-bottom: 0; }
 }
-ol.def, ol.fact, ol.example, ol.theorem, ol.lemma {
+ol.def, ol.fact, ol.example, ol.theorem, ol.lemma, ol.conc {
   padding-left: $left-size + 50px;
 }

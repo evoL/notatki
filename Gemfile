@@ -11,4 +11,3 @@ gem 'systemu'
 gem 'fssm'
 gem 'rb-fsevent' #mac
 gem 'nokogiri'
-gem 'pssm'
