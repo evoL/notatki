@@ -77,13 +77,13 @@ Biorąc to pod uwagę, funkcja wypisująca _(unparsing)_ dla notacji infiksowej 
     - dla stałych - wypisz literał całkowitoliczbowy
     - dla zmiennych - wypisz identyfikator
     - dla wyrażeń złożonych z operatora . i dwóch argumentów e1 i e2:
-        - jeśli priorytet operatora głównego w e1 jest mniejszy albo jest równy i wiąże w lewo niż .
+        - jeśli priorytet operatora głównego w e1 jest mniejszy albo jest równy i wiąże w prawo niż .
             wypisz (, wypisz e1, wypisz )
         w przeciwnym wypadku wypisz e1
         
         - wypisz operator .
 
-        - jeśli priorytet operatora głównego w e2 jest mniejszy albo jest równy i wiąże w prawo niż .
+        - jeśli priorytet operatora głównego w e2 jest mniejszy albo jest równy i wiąże w lewo niż .
             wypisz (, wypisz e2, wypisz )
         w przeciwnym wypadku wypisz e2
 
