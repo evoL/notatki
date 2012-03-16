@@ -52,7 +52,7 @@ Napis `21◡+◡5◡*◡◡71` może zostać przetworzony na takie coś:
 
 Proces czytania struktury leksykalnej i generowania tokenów jest przeprowadzany przez **lekser**. Z nich zaś tworzona jest przez **parser** składnia abstrakcyjna.
 
-Może być tak, że wpiszemy coś, co jest gramatycznie poprawne, lecz nie ma sensu. Wtedy lekser zrobi strukturę leksykalną, a parser ją odrzuci.
+Może być tak, że wpiszemy coś, co będzie zgodne z definicją gramatyki, lecz nie ma sensu. Wtedy lekser zrobi strukturę gramatyczną, a parser ją odrzuci.
 
 Może być jednak tak, że jedna gramatyka może reprezentować kilka składni abstracyjnych, czyli jest ona **niejednoznaczna**.
 
