@@ -34,7 +34,7 @@ lub
 
 W trakcie czytania takiego napisu często pomija się białe znaki, inaczej produkcja byłaby skomplikowana. W każdym miejscu, gdzie może wystąpić spacja musiałbyby być symbol nieterminalny oznaczający spacje.
 
-Czytanie składni konkretnej polega na dzielenie na _tokeny_, które tworzą **strukturę leksykalną**, np.:
+Czytanie **struktury leksykalnej** polega na dzieleniu na _tokeny_, które tworzą strukturę gramatyczną, np.:
 
 - stałe - literały
 - zmienne - identyfikatory
@@ -50,11 +50,11 @@ Napis `21◡+◡5◡*◡◡71` może zostać przetworzony na takie coś:
     operator *
     literał c. 71
 
-Konwersja składni konkretnej do struktury leksykalnej jest przeprowadzana przez **lekser**. Ona zaś jest konwertowana na składnię abstrakcyjną przez **parser**.
+Proces czytania struktury leksykalnej i generowania tokenów jest przeprowadzany przez **lekser**. Z nich zaś tworzona jest przez **parser** składnia abstrakcyjna.
 
 Może być tak, że wpiszemy coś, co jest gramatycznie poprawne, lecz nie ma sensu. Wtedy lekser zrobi strukturę leksykalną, a parser ją odrzuci.
 
-Może być jednak tak, że jedna gramatyka może reprezentować kilka składni abstracyjnych.
+Może być jednak tak, że jedna gramatyka może reprezentować kilka składni abstracyjnych, czyli jest ona **niejednoznaczna**.
 
 ### Przykład składni abstrakcyjnej wyrażeń
 
