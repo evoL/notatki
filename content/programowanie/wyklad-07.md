@@ -1,0 +1,158 @@
+---
+title: BNF i gramatyki w Prologu
+---
+
+# BNF i gramatyki w Prologu
+
+Do tej pory do opisywania gramatyk używaliśmy notacji matematycznej. Przykładowo, gramatykę opisującą palindromy składającą się z dwóch liter moglibyśmy zapisać
+
+$$
+S \rightarrow \epsilon \mid a \mid b \mid a S a \mid b S b
+$$
+
+Gdybyśmy jednak mieli za pomocą takiej notacji opisać język C, zamęczylibyśmy się na śmierć. Dlatego powstały inne notacje, które mają za zadanie uprościć opisywanie gramatyk.
+
+## BNF
+
+Notacja BNF charakteryzuje się następującymi cechami:
+
+- symbole terminalne piszemy normalnie
+- symbole nieterminalne piszemy w nawiasach trójkątnych (`<S>`)
+
+Jest więcej cech, dlatego najlepiej zobrazować produkcję w BNF na przykładzie:
+
+    <S> ::= <puste> | a | b | a <S> a | b <S> b
+    <puste> ::=
+
+Inny przykład, tym razem gramatyki wyrażeń z operatorami:
+
+| Łączność | Operatory |
+| &rarr; | `^` |
+| &larr; | `*`, `/` |
+| &larr; | `+`, `-` |
+
+    <wyrażenie> ::= <składnik> | <wyrażenie> <operator addytywny> <składnik>
+    <składnik> ::= <czynnik> | <składnik> <operator multiplikatywny> <czynnik>
+    <czynnik> ::= <wyrażenie atomowe> | <wyrażenie atomowe> <operator potęgowania> <czynnik>
+    <wyrażenie atomowe> ::= liczba | ( <wyrażenie> )
+    <operator addytywny> ::= + | -
+    <operator multiplikatywny> ::= * | /
+    <operator potęgowania> ::= ^
+
+Gramatyka ta jest rekurencyjna. Takie gramatyki można zdefiniować w sposób **wstępujący** albo **zstępujący**. Ta akurat jest zstępująca.
+Zauważmy, że jeżeli dany operator łączy w lewo, to rekursja schodzi w dół po lewej stronie operatora. Analogicznie, jeżeli łączy w prawo.
+
+Mając taką gramatykę, można by napisać parser. Tylko, że w dzisiejszych czasach nikt normalny nie pisze już parserów, bo je się generuje czymś takim jak `yacc` czy `bison`. Napisanie generatorów parserów jest proste, bo jakby się dobrze przyjrzeć, to gramatyka przypomina program prologowy.
+
+## Robimy chyba parser
+
+Weźmy bardzo prostą gramatykę do zobrazowania procesu generowania parsera.
+
+$$
+L = \{ a^nb^n \mid n \in \mathbb{N} \} \\
+S \rightarrow \epsilon \mid a S b
+$$
+
+Oczywiście naszym ulubionym językiem jest Prolog i w nim robi się to dosyć intuicyjnie, dlatego użyjemy właśnie niego to zrobienia parsera.
+
+Każdemu symbolowi nieterminalnemu powinien odpowiadać predykat.
+Dla naszej gramatyki:
+
+    #!prolog
+    s(X,Y) :- X = Y.
+    s(X,Y) :-
+        X = [a|Z1],
+        s(Z1, Z2),
+        Z2 = [b|Z3],
+        Z3 = Y.
+
+Albo prościej:
+
+    #!prolog
+    s(X,X).
+    s([a|X], y) :-
+        s(X, [b|Y]).
+
+W Prologu jest nawet specjalna notacja do pisania tego typu predykatów. Tłumacząc:
+
+    #!prolog
+    s --> "".
+    s --> "a", s, "b".
+
+I to niby działa. Odpowiada za to predykat `expand_term/2`.
+
+## Bo nie każdą gramatykę da się twardo przepisać
+
+    <wyrażenie> ::= <wyrażenie_atomowe> | <wyrażenie> + <wyrażenie_atomowe>
+
+W Prologu:
+
+    #!prolog
+    wyrazenie(X,Y) :-
+        wyrazenie_atomowe(X, Y).
+    
+    wyrazenie(X,Y) :-
+        wyrazenie(X, [+|Z]),       % ZUO
+        wyrazenie_atomowe(Z, Y).
+
+Mamy tutaj lewostronną rekursję, co spowoduje zapętlenie Prologa. Problem. Trzeba przebudować gramatykę, żeby takiej rekursji uniknąć.
+
+> Ale zanim to zrobimy, poćwiczmy notację ze strzałkami.
+
+>     #!prolog
+>     wyrażenie --> wyrażenie_atomowe.
+>     wyrażenie --> wyrażenie, "+", wyrażenie_atomowe.
+
+> Tylko co to jest to `"+"`? Otóż `"AB"` to jest skrót od `[65, 66]`, gdzie 65 i 66 to kody ASCII znaków A i B.
+
+Zróbmy teraz, żeby nasz parser prologowy wyliczał nam wyrażenia. To nie jest skomplikowane, wystarczy dodać zmienną i nieco poprzerabiać:
+
+    #!prolog
+    wyrazenie(N, X, Y) :-
+        wyrazenie_atomowe(N, X, Y).
+    
+    wyrazenie(N, X, Y) :-
+        wyrazenie(N1, X, [+|Z]),       % ZUO
+        wyrazenie_atomowe(N2, Z, Y),
+        N is N1 + N2.
+
+Gramatyki, które przy okazji robią jakąś akcję semantyczną, np. wyliczają wyrażenia, to **gramatyki atrybutowe**. 
+
+Oczywiście strzałkami też da się to zapisać:
+
+    #!prolog
+    wyrażenie(N) --> wyrażenie_atomowe(N).
+    wyrażenie(N) --> wyrażenie(N1), [+], wyrażenie_atomowe(N2), {N is N1+N2}.
+
+Wąsate nawiasy są po to, żeby nie `expand_term` nie móżdżył nad wyrażeniem `N is N1+N2`, tylko to po prostu wywołał.
+
+> _(tutaj były przykłady TWI z laptopa)_
+
+## Żeby nie było lewostronnej rekursji
+
+    liczba -> cyfra
+    liczba -> liczba cyfra
+
+Okazuje się, że jeśli nie chcemy liczyć to to jest bardzo proste, żeby to przerobić.
+
+    liczba -> cyfra
+    liczba -> cyfra liczba
+
+**ALE** fajnie byłoby to policzyć. Możemy w tym celu użyć akumulatora.
+
+    #!prolog
+    liczba(N) --> cyfra(C), liczba(C, N).
+    liczba(A, N) --> cyfra(C), !, {A1 is 10*A+C}, liczba(A1, N).
+    liczba(A, A) --> "".
+
+Ten trik można użyć w przypadku każdej rekursji lewostronnej.
+
+    #!prolog
+    w(N) --> w(N), [+], wa(N).
+    w(N) --> wa(N).
+
+    % zastępujemy to przez
+
+    w(N) --> wa(A), w(A, N).
+    w(A, N) --> [+], !, wa(M), {A1 is A+M}, w(A1, N).
+    w(A, A) --> "".
