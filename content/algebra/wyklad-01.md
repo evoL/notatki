@@ -52,4 +52,91 @@ Działanie + jest **rozdzielne** względem \\(\cdot\\) na A, gdy \\( \forall_{a,
 
 <!-- fakty -->
 1. Jeżeli istnieje lewostronny element neutralny \\( e_L \\) i prawostronny element neutralny \\( e_P \\), to \\( e_L = e_P \\).
+2. $$\cdot$$ - łączne, e - element neutralny, $$b_L$$ - lewostronny element neutralny, $$b_P$$ - prawostronny element odwrotny.  
+$$b_L = b_P$$, zatem $$\forall a \in A$$ istnieje co najwyżej 1 element neutralny do a.
 {:.fact}
+
+Przy czym elementów neutralnych _jednostronnych_ może być wiele (oczywiście wtedy nie ma el. neutralnych "drugostronnych")
+
+Elementy odwrotne lewo- i prawostronne mogą być różne, ale są sobie równe, jeśli działanie jest łączne.
+
+## Grupy
+
+<div class="def" markdown="1">
+Grupą nazywamy strukturę algebraiczną $$(G, *)$$ z jednym działaniem binarnym spełniającym:
+
+1. $$*$$ - łączne
+2. $$*$$ ma element neutralny
+3. $$\forall g \in G$$ istnieje el. odwrotny $$g^{-1}$$
+</div>
+
+Grupę $$(G, *)$$ nazywamy **abelową** (przemienną), gdy $$*$$ jest przemienne.
+{:.def}
+
+### Konwencje:
+
+- zamiast $$(G, *)$$ piszemy G
+- el. neutralny jest oznaczany przez e lub 1, a el. odwrotny do a przez $$a^{-1}$$
+- gdy grupa jest abelowa, używa się często notacji addytywnej:
+    - $$+$$ zamiast $$*$$
+    - el. neutralny: 0
+    - el. odwrotny do a: -a
+
+### Tabelka działania binarnego
+
+Z tabelki można zobaczyć przemienność działania. Jeśli tabelka jest symetryczna względem przekątnej, to działanie jest przemienne.
+
+| \ | **1** | **3** | **5** | **7** |
+| **1** | 1 | 3 | 5 | 7 | 
+| **3** | 3 | 1 | 7 | 5 |
+| **5** | 5 | 7 | 1 | 3 |
+| **7** | 7 | 5 | 3 | 1 |
+
+## Prawa skreśleń
+
+<div class="fact" markdown="1">
+Niech G będzie grupą:
+
+1. Dla $$g, h \in G\ \ $$ $$g * x = h$$ i $$y * g = h$$ ma 1 rozwiązanie
+2. W G zachodzą prawa skreśleń:
+    - lewostronne - $$\forall a,b,c \in G\ (a*b=a*c \Rightarrow b=c)$$
+    - prawostronne - $$\forall a,b,c \in G\ (b*a=c*a \Rightarrow b=c)$$
+</div>
+
+## Homomorfizmy
+
+<div class="def" markdown="1">
+Niech $$(G, *_G)$$ i $$(H, *_H)$$ będą grupami, a $$ f: G \rightarrow H $$ pewną funkcją:
+
+1. f jest homomorfizmem grup, gdy $$\forall a,b \in G\ ( f(a *_G b) = f(a) *_H f(b) )$$
+2. f jest monomorfizmem, gdy f jest homomorfizmem 1-1
+3. f jest epimorfizmem, gdy f jest homomorfizmem "na"
+4. f jest izomorfizmem, gdy f jest homomorfizmem 1-1 i "na" ($$G \cong H$$)
+</div>
+
+<div class="fact" markdown="1">
+Niech $$f: G \rightarrow H$$ będzie homomorfizmem. Wtedy:
+
+1. \$$f(e_G) = e_H$$
+2. \$$f(a^{-1}) = f(a)^{-1}$$
+</div>
+
+<div class="def" markdown="1">
+Niech G będzie grupą z elementem neutralnym e. Dla $$n \in \mathbb{N}$$, potęgę $$a^n$$ definiujemu rekurencyjnie:
+
+1. \$$a^0 = e$$
+2. \$$a^{n+1} = a * a^n$$
+</div>
+
+Dla $$n \in \mathbb{Z} \setminus \mathbb{N}$$, $$a^n = (a^{-1})^{-n}$$.
+{:.def}
+
+**Uwaga:** Dla $$n \in \mathbb{Z}$$:
+
+1. \$$a^{n+1} = a * a^n = a^n * a$$
+2. \$$a^{n-1} = a^{-1} * a^n = a^n * a^{-1}$$
+
+**Uwaga:**
+
+1. $$a^{n+m} = a^n * a^m$$, dla dowolnych $$ m,n \in \mathbb{Z} $$
+2. \$$(a^n)^m = a^{n*m}$$
