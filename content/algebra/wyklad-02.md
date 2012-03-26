@@ -126,24 +126,24 @@ Dla \\( X = \\{1,2,3,\ldots,n\\} \\), \\( S_n\ :=\ Sym(x) \\) i jest to grupa n!
 
 Daną permutację \\( f \in S_{n} \\) zapisujemy jako:
 
-$$
+<script type="math/tex; mode=display">
 \left(
 \begin{array}{cccccc} 
 	1 & 2 & 3 & 4 & \ldots & n \\
 	f(1) & f(2) & f(3) & f(4) & \ldots & f(n)
 \end{array}
 \right)
-$$
+</script>
 
 Czyli np. permutacja grupy 3-elementowej $$ f: \{1,2,3\} \rightarrow \{3,1,2\} $$ może wyglądać tak:
 
-$$
+<script type="math/tex; mode=display">
 \left(
 \begin{array}{ccc}
 	1 & 2 & 3 \\
 	3 & 1 & 2
 \end{array}
 \right)
-$$
+</script>
 
 Wtedy f(1) = 3, f(2) = 1, f(3) = 2.

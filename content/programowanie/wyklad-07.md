@@ -27,6 +27,7 @@ Jest więcej cech, dlatego najlepiej zobrazować produkcję w BNF na przykładzi
 Inny przykład, tym razem gramatyki wyrażeń z operatorami:
 
 | Łączność | Operatory |
+|-|-|
 | &rarr; | `^` |
 | &larr; | `*`, `/` |
 | &larr; | `+`, `-` |
