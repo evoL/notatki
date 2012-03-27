@@ -11,7 +11,7 @@ $$ f \in F[x] $$. Jeśli $$ f \vert g_1 \cdot \ldots \cdot g_k $$ i f jest niero
 {:.fact}
 
 <div class="fact" markdown="1">
-F - ciało. Jeśli $$ f_1, \ldots, f_k \in F[x] $$ są parami względnie pierwsze (prawda np. gdy są parami niestowarzyszone i nierozkładalne) i $$ \forall i\ (f_i \vert h) $$, to $$ f_1, \ldots, f_k \vert h $$.
+F - ciało. Jeśli $$ f_1, \ldots, f_k \in F[x] $$ są parami względnie pierwsze (prawda np. gdy są parami niestowarzyszone i nierozkładalne) i $$ \forall i\ (f_i \vert h) $$, to $$ f_1 \cdot \ldots \cdot f_k \vert h $$.
 
 > Dwa wielomiany f i g są stowarzyszone wtw, gdy $$ f = cg $$ dla $$ c \in F \setminus \{0\} $$.
 </div>
