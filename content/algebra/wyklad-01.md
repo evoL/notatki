@@ -120,23 +120,3 @@ Niech $$f: G \rightarrow H$$ będzie homomorfizmem. Wtedy:
 1. \$$f(e_G) = e_H$$
 2. \$$f(a^{-1}) = f(a)^{-1}$$
 </div>
-
-<div class="def" markdown="1">
-Niech G będzie grupą z elementem neutralnym e. Dla $$n \in \mathbb{N}$$, potęgę $$a^n$$ definiujemu rekurencyjnie:
-
-1. \$$a^0 = e$$
-2. \$$a^{n+1} = a * a^n$$
-</div>
-
-Dla $$n \in \mathbb{Z} \setminus \mathbb{N}$$, $$a^n = (a^{-1})^{-n}$$.
-{:.def}
-
-**Uwaga:** Dla $$n \in \mathbb{Z}$$:
-
-1. \$$a^{n+1} = a * a^n = a^n * a$$
-2. \$$a^{n-1} = a^{-1} * a^n = a^n * a^{-1}$$
-
-**Uwaga:**
-
-1. $$a^{n+m} = a^n * a^m$$, dla dowolnych $$ m,n \in \mathbb{Z} $$
-2. \$$(a^n)^m = a^{n*m}$$
