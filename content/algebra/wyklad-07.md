@@ -1,29 +1,9 @@
 ---
-title: Wykład 7
+title: Bardzo dużo rzeczy naraz
+description: Wielomiany wzgl. pierwsze, twierdzenia, wzór interpolacyjny, charakterystyki i jeszcze więcej
 ---
 
-# Wykład 7
-
-## Kontynuacja z poprzedniego tygodnia
-
-<div class="theorem" markdown="1">
-$$ F $$ - ciało, $$ f, g \in F[x], (f,g) \neq (0,0) $$
-
-1. f i g mają przynajmniej jeden największy wspólny dzielnik h o tej własności, że każdy wspólny dzielnik f i g dzieli h.
-2. Największy wspólny dzielnik f i g jest jedyny z dokładnością do przemnożenia przez stałą
-3. Istnieją $$ p, q \in F[x] $$ t, że $$ pf + qg = h $$ - dowolnie wybrany największy wspólny dzielnik f i g.
-</div>
-
-<div class="example" markdown="1">
-Znaleźć NWD($$ x^3 + x^2 + 3x + 3,\ 2x^2 + 3x + 1 $$) w $$\mathbb{Z}_7[x]$$.
-
-**Rozwiązanie:**  
-Dzielimy jeden wielomian przez drugi:  
-$$ x^3 + x^2 + 3x + 3 \div 2x^2 + 3x + 1 $$
-
-Resztą z dzielenia jest $$ 5x+5 $$, więc jest to NWD f i g.  
-Wszystkie NWD to wielomiany $$ c(x+1) $$ dla $$ c \in \mathbb{Z}_7 \setminus \{0\} $$.
-</div>
+# Bardzo dużo rzeczy naraz
 
 ## O wielomianach względnie pierwszych
 
