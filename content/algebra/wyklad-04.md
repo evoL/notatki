@@ -8,7 +8,7 @@ title: Dalszy ciąg grup, twierdzenie Lagrange'a, obraz i jądro
 Niech \\( H \leq G \\). Wtedy:
 
 1. Definiujemy relację binarną $$ \sim $$ na G:  
-   $$ g \sim h \Leftrightarrow g * h = h * H $$. Wtedy $$\sim$$ jest relacją równoważności na G.
+   $$ g \sim h \Leftrightarrow g * H = h * H $$. Wtedy $$\sim$$ jest relacją równoważności na G.
 2. Zdefiniujmy jeszcze jedną relację binarną na G, nazwijmy ją \\( \approx \\).
    Wtedy $$ g \approx h \Leftrightarrow H*g = H*h $$.
 </div>

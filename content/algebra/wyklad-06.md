@@ -4,7 +4,7 @@ title: Twierdzenie Eulera, chińskie twierdzenie o resztach, pierścienie wielom
 
 # Twierdzenie Eulera, chińskie twierdzenie o resztach, pierścienie wielomianów
 
-Jeśli \\( (R, +, \cdot) \\) jest pierścieniem z \\(1\\), to zbiór elementów odwracalnych ( względem \\(\cdot\\) ) pierścienia \\(R\\) oznaczamy przez \\( R^* \\) i wówczas \\( (R^*,+,\cdot) \\) jest grupą.
+Jeśli \\( (R, +, \cdot) \\) jest pierścieniem z jednością (1), to zbiór elementów odwracalnych ( względem \\(\cdot\\) ) pierścienia \\(R\\) oznaczamy przez \\( R^* \\) i wówczas \\( (R^*,+,\cdot) \\) jest grupą.
 {:.fact}
 
 ## Funkcja i twierdzenie Eulera

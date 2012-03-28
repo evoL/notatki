@@ -9,8 +9,8 @@ title: Grupy permutacji - ciąg dalszy
 <!-- Definicja -->
 1. $$ f \in S_{n} $$ jest **cyklem k-wyrazowym**, gdy istnieją parami różne $$ a_1,\ a_2,\ ...,\ a_k \in \{1,2,3,...,n\} $$ takie, że $$ f(a_{1}) = a_{2},\ f(a_{2})=a_{3},\ ...,\ f(a_{k+1})=a_{k},\ f(a_{k})=a_{1} $$ oraz $$ f(a)=a $$ dla $$ a \in \{1,2,3,...n\} \backslash \{a_{1},a_{2},...,a_{k} \} $$.  
 Taki cykl zapisujemy jako: ($$a_1,a_2,a_3,...,a_k$$).
-2. Cykl dwuwyrazowy nazywamy **transpozycją**, czyli transpozycje to cykle postaci ($$a_1,a_2$$), gdzie $$a_1 \neq a_2$$ oraz $$a_1, a_2, \in \{1,2,3,...,k\}$$.
-3. Cykle ($$ a_1,...,a_{k_{1}} $$) i ($$ b_1,...,b_{k_{2}} $$) są **rozłączne**, gdy $$ (a_1,...,a_{k_{1}} ) \bigcap ( b_1,...,b_{k_{2}} )=\emptyset$$, tzn. $$\forall_{i \in \{ 1,2,3,...,k_1 \} }, \forall_{j \in \{ 1,2,3,...,k_2\}}\ a_i \neq b_j $$.
+2. Cykl dwuwyrazowy nazywamy **transpozycją**, czyli transpozycje to cykle postaci ($$a_1,a_2$$), gdzie $$a_1 \neq a_2$$ oraz $$a_1, a_2 \in \{1,2,3,...,k\}$$.
+3. Cykle ($$ a_1,...,a_{k_{1}} $$) i ($$ b_1,...,b_{k_{2}} $$) są **rozłączne**, gdy $$ (a_1,...,a_{k_{1}} ) \cap ( b_1,...,b_{k_{2}} )=\emptyset$$, tzn. $$\forall_{i \in \{ 1,2,3,...,k_1 \} }, \forall_{j \in \{ 1,2,3,...,k_2\}}\ a_i \neq b_j $$.
 {:.def}
 
 <!-- Fakt -->
@@ -34,7 +34,7 @@ W grupie $$S_n$$:
 1. cykl k-wyrazowy jest rzędu k.
 2. rząd dowolnej permutacji jest najmniejszą wspólną wielokrotnością rzędów cykli z rozkładu na iloczyn cykli rozłącznych.
 
-Jeśli cykle rozłączne są przemienne to $$ f^{k} = ( c_1 \circ c_2 \circ c_i )^{k} = c_{1}^{k} \circ c_{2}^{k} \circ c_{i}^{k} $$.
+Jeśli cykle rozłączne są przemienne to $$ f^{k} = ( c_1 \circ c_2 \circ \ldots \circ c_i )^{k} = c_{1}^{k} \circ c_{2}^{k} \circ \ldots \circ c_{i}^{k} $$.
 </div>
 
 <!-- Definicja -->
@@ -44,7 +44,8 @@ Weźmy dowolne $$S_n$$. Wtedy:
 1. Elementy $$ f(i) $$ i $$ f(j) $$ dla \\( i < j \\) tworzą **inwersję** w permutacji, gdy $$ f(i) > f(j) $$.
 2. $$f$$ jest parzysta, gdy ma parzystą ilość inwersji
 3. $$f$$ jest nieparzysta, gdy ma nieparzystą ilość inwersji
-4. W związku z tym możemy zdefiniować znak permutacji `sgn(f) = f jest parzysta ? 1 : -1`.
+
+W związku z tym możemy zdefiniować znak permutacji `sgn(f) = f jest parzysta ? 1 : -1`.
 
 </div>
 
@@ -88,6 +89,6 @@ Niech $$X,Y \subset G$$, gdzie $$g$$ jest grupą. Możemy zdefiniować:
 Niech $$H \leq G$$ i G jest grupą. Wtedy:
 
 1. **Warstwy prawostronne H** to zbiory $$ H*g $$, gdzie $$ g \in G $$, czyli $$ H * g = \{ h*g\ :\ h \in H \} $$.
-2. **Warstwy prawostronne H** to zbiory $$ g*H $$, gdzie $$ g \in G $$, czyli $$ g * H = \{ g*h\ :\ h \in H \} $$.
+2. **Warstwy lewostronne H** to zbiory $$ g*H $$, gdzie $$ g \in G $$, czyli $$ g * H = \{ g*h\ :\ h \in H \} $$.
 
 </div>

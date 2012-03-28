@@ -58,7 +58,7 @@ Niech H będzie podzbiorem pewnej grupy G. Mówimy, że H jest **podgrupą** gru
 {:.def}
 
 <div class="fact" markdown="1">
-Jeśli G jest grupą \\( H \subset G \\), to wtedy te trzy warunki są równoważne:
+Jeśli G jest grupą i \\( H \subset G \\), to wtedy te trzy warunki są równoważne:
 
 1. \\( H \leq G \\)
 2.  
@@ -90,7 +90,7 @@ Niepusty podzbiór H grupy skończonej G jest podgrupą wtedy i tylko wtedy, gdy
 Weźmy dowolną grupę G oraz podzbiór \\( X \subset G \\).  Najmniejszą podgrupę G zawierającą zbiór X nazywamy **podgrupą generowaną przez X** i oznaczamy ją \<X\>.
 {:.def}
 
-Dla każdej dowolnej grupy \\(X \subset G\\)  istnieją \<X\> i \<X\> jest równe \\( \bigcap \\{ H \leq G \mid X \subset X \\} \\).
+Dla każdej dowolnej grupy \\(X \subset G\\)  istnieje \<X\> równe \\( \bigcap \\{ H \leq G \mid X \subset H \\} \\).
 {:.fact}
 	
 Mówimy, że podgrupa G jest **generowana przez podzbiór** \\( X \subset G \\), gdy \<X\> = G.
@@ -101,18 +101,18 @@ Mówimy, że podgrupa G jest **generowana przez podzbiór** \\( X \subset G \\),
 Mówimy, że grupa G jest **cykliczna**, gdy jest ona generowana przez jednoelementowy podzbiór {g}. Mówimy wtedy, że grupa jest **generowana przez element g**.
 {:.def}
 
-Innymi słowy grupa jest cykliczna jeśli wszystkie jej elementami są potęgami jakiegoś g _(do udowodnienia)_.
+Innymi słowy grupa jest cykliczna jeśli wszystkie jej elementy są potęgami jakiegoś g _(do udowodnienia)_.
 
-1. Jeśli \\( ( X \neq \emptyset ) \leq G \\) to $$ \langle X \rangle = \{ x_{1}^{\varepsilon_1},\ \ldots,\ x_{k}^{\varepsilon_{k}}\},\ k \in N;\ x_1,\ \ldots,\ x_k \in X;\ \varepsilon_1,\ \ldots,\ \varepsilon_k \in \{-1,1\} $$.
+1. Jeśli \\( ( X \neq \emptyset ) \leq G \\) to $$ \langle X \rangle = \{ x_{1}^{\varepsilon_1},\ \ldots,\ x_{k}^{\varepsilon_{k}}\},\ k \in \mathbb{N};\ x_1,\ \ldots,\ x_k \in X;\ \varepsilon_1,\ \ldots,\ \varepsilon_k \in \{-1,1\} $$.
 2. Jeśli H = \<g\> i rząd(g) jest skończony, to \\( H=\\{g, g^2,\ \ldots,\ g^m \\} \\), gdzie m jest rzędem elementu g.
 {:.fact}
 
 <div class="theorem" markdown="1">	
 Weźmy dowolne G=\<g\>. Wtedy:
 
-1. Jeśli rząd(g) jest nieskończony, to \\( G \cong ( Z, + ) \\).  
-   (czyli można utworzyć izomorfizm z grupy G w grupę \\( ( Z, + ) \\))
-2. Jeśli rząd(g) = k, to \\( G \cong ( Z_k, +_k ) \\).
+1. Jeśli rząd(g) jest nieskończony, to \\( G \cong ( \mathbb{Z}, + ) \\).  
+   (czyli można utworzyć izomorfizm z grupy G w grupę \\( ( \mathbb{Z}, + ) \\))
+2. Jeśli rząd(g) = k, to \\( G \cong ( \mathbb{Z}_k, +_k ) \\).
 </div>
 
 ## Grupy permutacji
@@ -122,7 +122,7 @@ Weźmy dowolne G=\<g\>. Wtedy:
 
 **Uwagi notacyjne:**  
 \\(Sym(x)\\) - zbiór wszystkich permutacji zbioru X, jest to grupa z działaniem składania.  
-Dla \\( X = \\{1,2,3,\ldots,n\\} \\), \\( S_n\ :=\ Sym(x) \\) i jest to grupa n!-elementowa.
+Dla \\( X = \\{1,2,3,\ldots,n\\} \\), \\( S_n\ :=\ Sym(X) \\) i jest to grupa n!-elementowa.
 
 Daną permutację \\( f \in S_{n} \\) zapisujemy jako:
 

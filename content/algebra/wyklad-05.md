@@ -62,7 +62,7 @@ W dowolnym pierścieniu:
 ## Algorytm Euklidesa
 
 <div class="def" markdown="1">
-**Wejście:** dwie liczby naturalne $$ m_0 = m,\ n_0 = m $$
+**Wejście:** dwie liczby naturalne $$ m_0 = m,\ n_0 = n $$
 
 **Opis działania na i-tym kroku:**
 
