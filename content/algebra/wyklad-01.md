@@ -52,7 +52,7 @@ Działanie + jest **rozdzielne** względem \\(\cdot\\) na A, gdy \\( \forall_{a,
 
 <!-- fakty -->
 1. Jeżeli istnieje lewostronny element neutralny \\( e_L \\) i prawostronny element neutralny \\( e_P \\), to \\( e_L = e_P \\).
-2. $$\cdot$$ - łączne, e - element neutralny, $$b_L$$ - lewostronny element neutralny, $$b_P$$ - prawostronny element odwrotny.  
+2. $$\cdot$$ - łączne, e - element neutralny, $$b_L$$ - lewostronny element odwrotny, $$b_P$$ - prawostronny element odwrotny.  
 $$b_L = b_P$$, zatem $$\forall a \in A$$ istnieje co najwyżej 1 element neutralny do a.
 {:.fact}
 
