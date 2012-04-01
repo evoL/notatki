@@ -60,7 +60,7 @@ Ponadto jest tylko jedno rozwiązanie $$ x_0 $$ układu równań $$(*)$$ w zbior
 </div>
 
 ### Metoda rozwiązywania układu $$(*)$$:  
-Niech $$ z_i = \frac{m}{m_i} = m_1 \cdot m_2 \cdot \ldots \cdot m_{i-1} \cdot m_{i+1} \cdot \ldots \cdot m_k $$. Znajdujemy takie $$y \in \mathbb{Z} $$, że $$ z_i \cdot y_i \equiv 1( mod\ m_1) $$ Wówczas $$ x = a_1 z_1 y_1 + a_2 z_2 y_2 + \ldots + a_k z_k y_k $$ jest rozwiązaniem układu, bo $$ x \equiv a_i z_i y_i \equiv a_i (mod\ m_i ) $$
+Niech $$ z_i = \frac{m}{m_i} = m_1 \cdot m_2 \cdot \ldots \cdot m_{i-1} \cdot m_{i+1} \cdot \ldots \cdot m_k $$. Znajdujemy takie $$y_i \in \mathbb{Z} $$, że $$ z_i \cdot y_i \equiv 1( mod\ m_1) $$ Wówczas $$ x = a_1 z_1 y_1 + a_2 z_2 y_2 + \ldots + a_k z_k y_k $$ jest rozwiązaniem układu, bo $$ x \equiv a_i z_i y_i \equiv a_i (mod\ m_i ) $$
 
 ## Pierścienie wielomianów
 
