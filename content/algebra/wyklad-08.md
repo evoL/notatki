@@ -43,7 +43,7 @@ Wówczas $$( K^n, +, \alpha \cdot )_{\alpha \in K } $$ jest przestrzenią liniow
 **Interpretacja geometryczna:**  
 Elementy $$K^n$$ to punkty w przestrzenie $$K^n$$ lub wektory o początku w punkcie $$(0,0,\ldots,0)$$.  
 Np weźmy: $$K = \mathbb{R},\ n=2 \leadsto \mathbb{R}^2 $$:  
-	_Tu ma być wykres_  
+	![Wykres](/images/Wykres1.png)
 **Dwie uwagi co do $$R^2:$$**  
 1) $$+$$ w $$R^2$$ to "znane" (prawdopodobnie) dodawanie wektorów  
 2) $$\cdot$$ w $$R^2$$ to "znane" mnożenie wektora przez skalar  
