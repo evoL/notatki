@@ -1,0 +1,178 @@
+---
+title: Listy i typy definiowane indukcyjnie
+---
+
+# Listy i typy definiowane indukcyjnie
+
+## Typy indukcyjnie
+
+Listy są typem zdefiniowanym indukcyjnie. Zanim do nich przejdziemy, zajmiemy się innym typem zdefiniowanym indukcyjnie - liczbami naturalnymi.
+
+<div class="def" markdown="1">
+Liczby naturalne to najmniejszy zbiór spełniający poniższe warunki:
+
+1. Zero jest liczbą naturalną
+2. Jeżeli `n` jest liczbą naturalną, to `Succ n` też jest liczbą naturalną
+</div>
+
+**Zasada indukcji:** Z tego, że jest spełniona własność dla zera i dla każdego n, jeżeli jest spełniona jest własność dla `n`, to spełniona jest też własność dla `Succ n` wynika to, że dla każdego `n` spełniona jest ta własność.
+
+Jeżeli definiujemy jakiś zbiór indukcyjnie, to zasada indukcji w nim jest zawsze spełniona.
+
+Możemy tą definicję zapisać w Haskellu:
+
+    #!haskell
+    data Nat = Zero | Succ Nat
+
+To jest dokładny odpowiednik tekstu definicji. Tworzy on nowy typ `Nat` i dwie wartości `Zero` i `Succ`, które są jakby _konstruktorami zbioru_.
+
+Teraz możemy definiować nowe funkcje bazujące na tym typie. Oczywiście, jako że typ mamy zbudowany indukcyjnie, to aż się prosi, by te funkcje definiować również indukcyjnie. Przykładowo możemy zdefiniować dodawanie:
+
+    #!haskell
+    plus :: Nat -> Nat -> Nat
+
+Żeby ją zdefiniować musimy rozpatrzyć przypadki bazowe.
+
+    #!haskell
+    Zero `plus` m = m
+    Succ n `plus` m = Succ (n `plus` m)
+
+Co więcej, okazuje się, że tworzenie tego typu funkcji jest schematyczne. 
+
+    #!haskell
+    f :: Nat -> a
+    f Zero = c
+    f (Succ n) = g(f(n))
+
+Żeby zdefiniować funkcję indukcyjnie wystarczy wtedy określić `c`, `g`:
+
+    #!haskell
+    c :: a
+    g :: a -> a
+
+Zróbmy sobie funkcję, która przyjmując takie parametry wygeneruje nam dowolną funkcję `f`.
+
+    #!haskell
+    iter :: (a -> a) -> a -> Nat -> a
+
+    iter _ c Zero = c
+    iter g c (Succ n) = g(iter g c n)
+
+Jednak `plus` zdefiniowany w Haskellu ma jeden problem. Nie da się naszą zasadą indukcji udowodnić chociażby jego łączności. Dlaczego? Chociażby dlatego, że mamy $$\perp$$ w zbiorze! Fundamentalną zasadą Haskella jest zaś `f undefined ≠ undefined`.
+
+### Pineski
+
+Spróbujmy sie tym pobawić.
+
+    #!haskell
+    x :: Nat
+    x = Succ (Succ undefined)
+
+    iszero :: Nat -> Bool
+    iszero Zero = True
+    iszero _ = False
+
+    iszero x
+
+Jako że Haskell jest leniwy, to ewentualne liczenie `x` odbywa się dopiero w ostatniej linii programu. Doliczy do Succ $$\perp$$ i stwierdzi, że False.
+
+Z tego wynika, że `x` nie ma pojedynczej wartości. `x` przyjmuje wartości w zależności od tego, ile potrzebujemy wyliczyć. Te wartości nazywają się **liczbami częściowymi**.
+
+### Nieskończoności
+
+Wartości `x` nie są jedynymi, których jakby _brakuje_. Weźmy:
+
+    #!haskell
+    infinity :: Nat
+    infinity = Succ infinity
+
+Także oprócz liczb częściowych w zbiorze mamy jeszcze nieskończoność.
+
+### No to jak dowodzić?
+
+Szkic dowodu indukcyjnego względem n.
+
+1. n = Zero
+2. n = $$\perp$$.  
+   $$\perp$$ \`plus\` m = $$\perp$$  
+   L = ($$\perp$$ \`plus\` m) \`plus\` $$\perp$$ = $$\perp$$ \`plus\` k = $$\perp$$  
+   P = $$\perp$$ \`plus\` (m \`plus\` k) = $$\perp$$
+3. n -> Succ n  
+   ...
+
+## Listy!
+
+1. `[]` jest listą wartości typu `a`
+2. Jeżeli `x :: a` i `l` jest listą wartości typu `a`, to `x : l` jest listą elementów typu `a`.
+{:.def}
+
+Zapiszmy tą definicję w _prawie-Haskellu_: (ta składnia jest zła)
+
+    #!haskell
+    data [a] = [] | (:) a [a]
+
+Zatem `[1,2,3] = 1:2:3:[]`.
+
+### Bardzo smaczny cukierek
+
+Zrobimy ciąg Fibonacciego, bazując na spostrzeżeniu, że ciąg Fibonacciego dodany go ciągu Fibonacciego przesuniętego o 1 element w lewo daje ciąg Fobonacciego przesunięty o 2.
+
+    #!haskell
+    fib :: [Integer]
+    fib = 1:1:zipWith (+) fib (tail fib)
+
+## Podstawowe operacje na listach
+
+### Konkatenacja
+    
+    #!haskell
+    (++) :: [a] -> [a] -> [a]
+    [] ++ ys = ys
+    (x,xs) ++ ys = x:(xs ++ ys)
+
+Działanie `++` jest łączne.
+{:.fact}
+
+### Odwracanie
+    
+    #!haskell
+    -- Tak sie nie robi, patrz wykłady z Prologa
+    rev :: [a] -> [a]
+    rev [] = []
+    rev (x:xs) = rev xs ++ [x]
+
+    -- Lepiej, z akumulatorem
+    rev' :: [a] -> [a]
+    rev' = aux [] where
+        aux ys [] = ys
+        aux ys (x:xs) = aux (x:ys) xs
+
+`rev = rev'`
+{:.fact}
+
+**Uwaga:** Nie można odwrócić listy nieskończonej. `rev fib = undefined`
+
+Dla dowolnej listy skończonej `xs` jest `rev (rev xs) = xs`.
+{:.fact}
+
+### Długość
+
+    #!haskell
+    length :: [a] -> Int
+    length [] = 0
+    length (_:xs) = 1 + length xs
+
+### Składanie listy do jednej wartości
+
+    #!haskell
+    foldr :: (a->b->b) -> b -> [x] -> b
+    foldr _ c [] = c
+    foldr g c (x:xs) = g x (foldr g c xs)
+
+<div class="example" markdown="1">
+    #!haskell
+    > foldr (+) 0 [1,2,3,4,5]
+    15
+
+    xs ++ yp = foldr (:) yp xs
+</div>
