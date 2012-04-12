@@ -123,10 +123,6 @@ body {
   color: $text;
 }
 
-a {
-  text-decoration: none;
-}
-
 a:link,
 a:visited {
   color: $link;
@@ -243,6 +239,7 @@ th { background: $hover; color: #fff; }
 
 .notes a {
   display: block;
+  text-decoration: none;
 }
 .notes em {
   font-style: normal;

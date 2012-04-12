@@ -1,0 +1,176 @@
+---
+title: Wykład 10
+---
+
+# Wykład 10
+
+## Więcej o listach
+
+Listy w Haskellu są homogeniczne, czyli przechowują wartości jednego typu.
+
+## Więcej operacji na listach
+
+### map
+
+    #!haskell
+    -- " map f [x1, ..., xn] = [f x1, ..., f xn] "
+
+    map :: (a -> b) -> ([a] -> [b])
+    map _ [] = []
+    map f (x:xs) = f x : map f xs
+
+Jakby tak popatrzeć, to znowu pisanie tego typu operacji jest schematyczne:
+
+    #!haskell
+    infixr OP -- żeby operator OP był infiksowy
+
+    g [] = c
+    g (x:xs) = x OP g xs
+
+Okazuje się że `g = foldr (OP) c`. Zobacz [definicję `foldr`](/programowanie/wyklad-09/#skadanie-listy-do-jednej-wartoci).
+
+Zatem takie operacje na listach możemy zapisać używając `foldr`:
+
+    #!haskell
+    const :: a -> b -> b
+    const _ b = b
+
+    const' :: a -> b -> a
+    const' a _ = a
+
+    --
+
+    length = foldr (const' (+1)) 0
+    map = foldr (\x -> \ys -> f x : ys) []
+
+## Żeby nie pisać niepotrzebnych funkcji
+
+W Haskellu modne jest pisanie funkcji używając już istniejących funkcji.
+
+Na przykład, gdy chcielibyśmy napisać `f = \x = sin x`, możemy napisać `f = sin`.
+
+Dlatego funkcję `map` moglibyśmy napisać tak:
+
+    #!haskell
+    map = foldr (\x -> (:) (f x)) []
+
+Jeżeli byśmy się uparli możemy to jeszcze skrócić, ale to już się zrobi co najmniej nieczytelne:
+
+    #!haskell
+    map = foldr ((:) f) []
+
+## Inne modele indukcji
+
+Jak można się było domyśleć, `foldr` nie jest jedynym modelem indukcji. Rozważmy [funkcję `iter`](/programowanie/wyklad-09/). Taki iter jest fajny, ale można by zapisać go inaczej, bo składanie funkcji jest łączne:
+
+    #!haskell
+    data Nat = Zero | Succ Nat
+
+    iter' _ c Zero = c
+    iter' f c (Succ n) = iter' f (f c) n
+
+Okazuje się, że `iter'` jest dużo bardziej _strict_ niż `iter`.
+W taki sam sposób moglibyśmy napisać `foldl`:
+
+    #!haskell
+    foldl _ c [] = c
+    foldl f c (x:xs) = foldl (f) (f c x) xs
+
+`foldl` robi niby to samo, co `foldr`, ale nie do końca. Do implementacji `length` `foldl` wydaje się lepszy, robi się rekursja ogonowa i jest fajnie.
+
+    #!haskell
+    length = foldl (\n -> const (n+1)) 0
+
+<div class="theorem" markdown="1">
+**Pierwsze twierdzenie o dualności**
+
+Jeżeli \<a, +, c\>  jest _półgrupą z jednością_, to `foldl (+) c = foldr (+) c`.
+
+**Półgrupa z jednością:**
+
+    #!haskell
+    + :: a -> a -> a
+    c :: a
+
+- `(+)` jest łączny  
+- `c` jest elementem neutralnym `(+)`
+</div>
+
+## Czy da się przerobić wyrażenie `foldl` na `foldr`?
+
+    foldl (+) c [x1, ..., xn] = ((c + x1) + x2) + ... + xn
+    foldr (+) c [x1, ..., xn] = x1 + (x2 + ... + (xn + c) ... )
+
+<div class="theorem" markdown="1">
+Jeżeli `(*)`, `(+)` i `c` spełniają następujące własności:
+
+    x + (y * z) = (x + y) * z
+    x + c = c * x
+
+to `foldl (+) c xs = foldr (*) c xs` dla skończonych list `xs`.
+</div>
+
+## `max` na listach niepustych
+
+To jest `max` najprostszy jaki moglibyśmy zrobić:
+
+    #!haskell
+    max :: Integer -> Integer -> Integer
+
+    max x y
+        | x >= y = x
+        | otherwise = y
+
+Jeżeli przepuścilibyśmy go przez `foldr` czy `foldl` to znaleźlibyśmy element maksymalny listy, możliwe, że pustej.
+
+Zdefiniujmy `foldr1`, który działa na listach co najmniej jednoelementowych.
+
+    #!haskell
+    foldr1 (+) [x] = x
+    foldr1 (+) (x:xs) = x + foldr1 xs
+
+## Więcej operacji na listach
+
+### `inits`
+
+Zwraca listę wszystkich _początków_ listy.
+
+    #!haskell
+    inits :: [a] -> [[a]]
+
+    inits [] = [[]]
+    inits (x:xs) = [] : map (x:) (inits xs)
+
+    -- albo
+
+    inits = foldr (+) [[]] where
+        x + ys = [] : map (x:) ys
+
+### scan
+
+    scanr (+) e [x1, ..., xn] = [e, x1 + e, x1 + x2 + e, ..., x1 + x2 + ... + xn + e]
+
+    scanl (*) e [x1, ..., xn] = [e, x1 * e, x1 * x2 * e, ..., x1 * x2 * ... * xn * e]
+
+Implementacja nieefektywna wyglądałaby tak:
+
+    #!haskell
+    scanl (*) e = map (foldl (*) e) . inits
+
+`.` to składanie funkcji. Możemy poczarować i wyjdzie nam:
+
+    #!haskell
+    scanl (*) e (x:xs) = e : scanl (*) (e*x) xs
+
+## Cukier syntaktyczny na koniec
+
+`1:2:[]` to to samo co `[1,2]`.
+
+Zbiory można opisywać tak jak w matematyce: ``[2*n+1 | n <- [0,2..], n `mod` 3 /= 0]``.
+
+Moc takiej notacji dobitnie pokazuje specyfikacja Quicksorta.
+
+    #!haskell
+    sort :: Ord a => [a] -> [a]
+    sort [] = []
+    sort (x:xs) = sort [y | y <- ys, y < x ++ [x] ++ sort [y | y <- xs, y >= x]]
