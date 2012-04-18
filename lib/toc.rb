@@ -9,7 +9,7 @@ class String
 end
 
 def toc(directory)
-    files = Dir.glob("content/#{directory}/*").reject { |f| f =~ /.hidden$/ }
+    files = Dir.glob("content/#{directory}/*").reject { |f| f =~ /.hidden$/ }.sort
 
     output = "<dt>#{directory.deurlize}</dt>"
     output << %Q{<dd><ul class="notes">}
