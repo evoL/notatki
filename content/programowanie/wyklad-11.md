@@ -1,0 +1,220 @@
+---
+title: Coś o optymalizacji
+---
+
+# Coś o optymalizacji
+
+## Listy leniwe a gorliwe
+
+W językach gorliwych, jak SML, konstruktor isty jest gorliwy. Znaczy to, że dla wyrażenia `e1 :: e2` wyliczane jest najpierw `e1` i `e2`, a dopiero potem zostaje zaalokowana pamięć na strukturę listy z tymi dwoma wartościami.
+
+W Haskellu i innych językach leniwych działa to inaczej. Wyrażenie `e1 : e2` spowoduje zaalokowanie pamięci ze wskaźnikami do samych wyrażeń oznaczonych przez `e1` i `e2`. Wyrażenia te są wywoływane w razie potrzeby.
+
+To daje nam możliwość zbudowania listy potencjalnie nieskończonej:
+
+    #!haskell
+    nats n = n : nats (n+1)
+    xs = nats 0
+
+## Model wieloprocesowy
+
+Programy można składać z wielu procesów. Przykładowo generowanie liczb pierwszych można złożyć z generatora kolejnych liczb naturalnych od 2 oraz wielu filtrów, które kolejno odfiltrowują wielokrotności danych liczb pierwszych. Procesy te połączone są potokami. Istnieje też proces nadrzędny, który tworzy kolejne filtry dla liczb, które nie zostały odfiltrowane i zwraca je.
+
+    Początek: Generator -> Nadrzedny
+    Dla 2: Generator -> Filtr(2) -> Nadrzedny
+    Dla 3: Generator -> Filtr(2) -> Filtr(3) -> Nadrzedny
+    Dla 4: Generator -> Filtr(2) -> Filtr(3) -> Nadrzedny
+    ...
+
+Innym przykładem jest kalkulator składający się z leksera, parsera i ewaluatora.
+
+    #!haskell
+    lexer :: [Char] -> [Token]
+    parser :: [Token] -> AST
+    eval :: AST -> Integer
+
+    calc = eval . parser . lexer
+
+Taki program nawet dla dużych danych zajmuje mało pamięci, dlatego że tworzone są listy przejściowe, które są od razu niszczone, co nie jest fajne. Całe szczęście, że kompilator zna wiele praw dotyczących funkcji, co pozwala mu na potężną optymalizację.
+
+## Nowe operacje na listach!
+
+### Czy wszystkie elementy listy spełniają funkcję
+
+    #!haskell
+    all :: (a -> Bool) -> [a] -> Bool
+    all p [] = True
+    all p (x:xs) = (p x) && (all p x s)
+
+### Pobieranie / usuwanie n elementów listy
+
+    #!haskell
+    take :: Int -> [a] -> [a]
+    drop :: Int -> [a] -> [a]
+
+### Operacje działające na zasadzie `while`
+
+    #!haskell
+    -- Dopóki elementy spełniają warunek p sprawdź, czy spełniają też q
+    allWhile :: (a -> Bool) -> (a -> Bool) -> [a] -> Bool
+    allWhile p q [] = True
+    allWhile p q (x:xs) = not (p x) || (q x && allWhile p q xs)
+
+    -- Pobieranie / usuwanie elementów dopóki spełniają warunek
+    takeWhile :: (a -> Bool) -> [a] -> [a]
+    dropWhile :: (a -> Bool) -> [a] -> [a]
+
+## Generowanie listy liczb pierwszych
+
+Można to zrobić _udawanym_ sitem:
+
+    #!haskell
+    primes :: [Integer]
+    primes = 2 : [n | n <- [3..], allWhile (\p -> p*p <= n) (\p -> n `mod` p /= 0) primes]
+
+Można to też zrobić prawdziwym sitem Eratostenesa. Przyda nam się do tego funkcja `iterate`:
+
+    #!haskell
+    -- Intuicja: iterate f a = [a, f a, f(f a), ...]
+    iterate :: (a -> a) -> a -> [a]
+    iterate f a = a : iterate f (f a)
+
+    primes = map hd, iterate (\x:xs -> [y | y <- xs, y `mod` x /= 0])[2..]
+
+## Cukry syntaktyczne i rozwinięcia listowe
+
+    #!haskell
+    [n..] = enumFrom n
+    [n..m] = enumFromTo n m
+    [n,m..] = enumFromBy n m
+    enumFromToBy n m d
+
+Najpotężniejszym cukrem syntaktycznym są **rozwinięcia listowe**, czyli _list comprehensions_. Wiele przykładów używających `map` czy `filter` można czytelniej napisać właśnie w formie takiego wyrażenia:
+
+    #!haskell
+    [f x | x <- xs]     -- map f xs
+    [x | x <- xs, q x]  -- filter q xs
+
+### "Odcukrzanie" rozwinięć listowych
+
+    #!haskell
+    [e|] = [e]
+
+    [e | bool, conditions] =
+        if bool
+            then [e | conditions]
+            else []
+
+    [e | p <- xs, conditions] =
+        let
+            f p = [e | conditions]
+        in
+            concatMap f xs
+
+    [e | let p = e', conditions] =
+        let p = e' in [e | conditions]
+
+`concatMap` to jest bardzo ważna funkcja, bo to jest _bind w monadzie listowej_.
+
+    #!haskell
+    concatMap :: (a -> [b]) -> [a] -> [b]
+    concatMap _ [] = []
+    concatMap f (x:xs) = f x ++ concatMap f x
+
+    concatMap f = concat . map f
+
+### Przykład zastosowania
+
+    #!haskell
+    -- Intuicja: zipWith (+) [x1, ..., xn] [y1, ..., yn] = [x1+y1, ..., xn+yn]
+    zipWith f xs ys = [ f x y | x <- xs | y <- ys ]
+
+## Homomorfizmy w Haskellu
+
+<div class="def" markdown="1">
+
+<script type="math/tex; mode=display">
+<X, \oplus, c>, <Y, \otimes, d> \\
+h: X \rightarrow Y \\
+h(x_1 \oplus x_2) = h(x_1) \otimes h(x_2) \\
+h(c) = d
+</script>
+
+</div>
+
+Jakie operacje w Haskellu mają homomorfizmy i względem jakiego operatora?
+
+| Operacja | Homomorfizm względem |
+|:-|:-:|
+| `map f` | `++` |
+| `length` | `+` |
+| `head` | `const` |
+| `sum :: [Integer] -> Integer` | `+` |
+
+Jeśli `(+) :: b -> b -> b` jest łączny, a `e :: b` jest jego naturalnym elementem, to dla dowolnej funkcji `f :: a -> b` istnieje dokładnie jeden `(+)`-homomorfizm taki, że `h . (: []) = 1`.
+{:.theorem}
+
+---
+
+Funkcja `h :: [a] -> b` jest `(+)`-zlewna _(lefthand/wprawna)_ jeśli:
+
+    #!haskell
+    h ([a] ++ ys) = a (+) h ys
+    h [] = e
+
+to `h = foldr (+) e`.
+
+Funkcja `h :: [a] -> b` jest `(*)`-sprawna _(righthand/wlewna)_ jeśli
+
+    #!haskell
+    h (xs ++ [a]) = h xs (*) a
+
+i jeśli `[]` należy do dziedziny `h`, to `h [] = e`, a więc `h = foldl (*) e`.
+
+### Drugie twierdzenie o homomorfiźmie
+
+Każdy homomorfizm jest zlewny i sprawny.
+{:.theorem}
+
+### Trzecie twierdzenie o homomorfiźmie
+
+Jeśli h jest zlewna i sprawna, to h jest homomorfizmem. Co więcej, h jest `(+)`-homomorfizem, gdzie `t (+) n = h (gt ++ gn)` dla dowolnej `g` spełniającej warunek $$ h \circ g \circ h = h $$.
+{:.theorem}
+
+## Co nam to daje?!
+
+Zróbmy sobie prostego insertion sorta.
+
+    #!haskell
+    sort = foldr ins [] where
+        ins a [] = [a]
+        ins a bs@(b:bs')      -- yyy?
+            | a < b = a:bs
+            | otherwise = b : ins a bs'
+
+Okazuje się, że `sort` można też zapisać tak:
+    
+    #!haskell
+    sort = foldl ins []
+
+Zatem sort jest zlewny i sprawny.
+
+**Wniosek:** sortowanie jest homomorfizmem - istnieje `(+)`, że `sort (xs ++ yp) = sort xs (+) sort yp` i `xs (+) ys = sort (g xs ++ g ys)` dla dowolnej funkcji `g` t. że `xs (+) ys = sort (xs ++ ys)`.
+
+Zatem zdefiniujmy taki `(+)`:
+
+    #!haskell
+    [] (+) ys = ys
+    xs (+) [] = xs
+
+    xs@(x:xs') (+) ys@(y:ys')
+        | x < y  = x : (xs' (+) ys)
+        | x >= y = y : (xs (+) ys')
+
+    sort = hom (+) (:[]) []
+    -- 
+    sort [] = []
+    sort [a] = [a]
+    sort xs = sort ys (+) sort zs where (ys,zs) = split xs -- split ma spełniać ys ++ zs = xs
+
+I tak powstał merge sort.
