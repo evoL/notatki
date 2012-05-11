@@ -1,5 +1,5 @@
 ---
-title: Przestzenie liniowe cd.
+title: Przestrzenie liniowe cd.
 ---
 
 #Przestrzenie liniowe - ciąg dalszy

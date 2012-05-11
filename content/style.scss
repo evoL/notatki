@@ -353,6 +353,7 @@ div.def, div.example, div.fact, div.theorem, div.lemma, div.conc {
   & > :first-child { margin-top: 0; }
   & > :last-child { margin-bottom: 0; }
 }
+ul.def, ul.fact, ul.example, ul.theorem, ul.lemma, ul.conc,
 ol.def, ol.fact, ol.example, ol.theorem, ol.lemma, ol.conc {
   padding-left: $left-size + 50px;
 }
