@@ -41,7 +41,7 @@ Spróbujemy go zdefiniować.
 
     #!prolog
     map(_, [], []).
-    map(P, [H1,T1], [H2|T2]) :-
+    map(P, [H1|T1], [H2|T2]) :-
         C =.. [P, H1, H2],      % te dwie linie załatwiłoby call(P, H1, H2)
         C,
         map(P, T1, T2).
@@ -102,11 +102,10 @@ To jednak jest głupi pomysł, bo ktoś mógłby zrobić taki atom i by rypło.
 Spróbujmy więc zrobić to od drugiej strony.
 
     #!prolog
-    nonvar(X) :-
-        \+ X = a,
-        \+ X = b.
+    nonvar(X) :- (\+ X = a -> true; \+ X = b).
 
 Jak się zunifikuje z dwoma różnymi atomami, to raczej to musi być zmienna. Dalej już z górki.
+    
 
     #!prolog
     var(X) :-
@@ -149,4 +148,5 @@ _(długo długo nic)_
     #!prolog
     put(X-[E|Z], E, X-Z).
     get([E|X]-Z, E, X-Z).
-    empty(X-X).
+    empty(X) :- var(X), !, X=A-A.
+    empty(X-Y) :- X==Y.
