@@ -1,0 +1,90 @@
+Organizacja Narodowego Banku Polskiego
+======================================
+1. Zasady powoływania 
+    Prezesa NBP powołuje Sejm na wniosek prezydenta. W skład Rady Polityki Pieniężnej wchodzi 10 osób: prezes + 3 powołanych z Sejmu, trzech z Senatu i trzech przez prezydenta. Potem składają przysięgę przed organem, który ich powołał.
+2. Wymagania
+    Prezesem oraz członkiem RPP może być każdy. Prezes jednak powinien być apolityczny oraz nie może prowadzić działalności gospodarczej nie dającej się pogodzić z nowym stanowiskiem. Członkowie RPP powinny być osobami, które mają wiedzę z zakresu finansów.
+3. Zasady wygaśnięcia kadencji
+    Kadencja prezesa NBP trwa 6 lat i może być raz powtórzona. Kadencja członka RPP trwa również 6 lat, a można nim być tylko raz. 
+    Kadencja prezesa wygasa:
+    - po upływie okresu kadencji
+    - w przypadku śmierci
+    - w razie rezygnacji
+    - w razie odwołania
+
+    Kadencja RPP wygasa:
+    - po upływie kadencji
+    - w razie śmierci
+    - w razie odwołania
+4. Zasady odwołania
+    Prezesa można odwołać, gdy:
+    - nie wypełnia swoich obowiązków, z powodu długotrwałej choroby
+    - został skazany prawomocnym wyrokiem sądu za popełnione przestępstwo
+    - złożył niezgodne z prawdą oświadczenie lustracyjne
+    - Trybunał Stanu orzekł wobec niego zakaz zajmowania stanowisk kierowniczych
+
+    Członków RPP można odwołać, gdy (członka RPP odwołuje organ, który tego członka powołał):
+    - jest chory
+    - zrzekł się funkcji
+    - popełnił przestępstwo
+5. Zadania, jakie wypełniają prezes i RPP
+    Zadania Prezesa:
+    - jest przewodniczącym RPP
+    - jest przełożonym wszystkich pracowników NBP i odpowiada za jego funkcjonowanie
+    - reprezentuje NBP na zewnątrz
+    - jest członkiem Komitetu Stabilności Finansowej
+    - ustala zasady przechowywania wartości pieniężnych oraz sposób ich transportu (w porozumieniu z bankami)
+
+    Zadania RPP:
+    - ustala coroczne założenia polityki pieniężnej i przedkłada je do wiadomości Sejmowi równocześnie z przedłożeniem przez Radę Ministrów budżetu Państwa
+    - składanie Sejmowi sprawozdania z realizacji polityki pieniężnej
+    - ustalanie wysokości stóp procentowych
+    - ustalanie stopy rezerwy obowiązkowej banków
+    - ustalanie zasad operacji otwartego rynku
+    - przyjmuje sprawozdanie zarządu (? da_fck ?)
+
+## Tu weź notatkę od Hirsza o bilansie
+
+Narzędzie Narodowego Banku Centralnego
+======================================
+NBP może stosować następujące narzędzie w relacji z bankami (może zwiększać lub zmniejszać zdolności kredytowe banków):
+ - bezpośrednie
+ - pośrednie
+ - perswazyjne
+ - inne
+
+Narzędzie bezpośrednie:
+ - NBP wprost informuje banki, że nie mozna już więcej udzielać kredytów (były stosowane w latach 90., dzisiaj już się nie stosuje)
+
+Narzędzie pośrednie:
+ - polityka otwartego rynku - sprzedaż i skup papierów wartościowych emitowanych przez NBP. NBP emituje bony NBP albo obligacje. Jeśli bank kupi papier wartościowy od NBP, to banki zmniejszają swoje zdolności kredytowe. Ale nie każdy może odsprzedawać innych bankom papiery wartościowe NBP. Banki, które mogą to robić nazywane są dilerami bankowymi NBP.
+ - rezerwy obowiązkowe - narzędzie, które działa na wszystkie podmioty z jednakową siłą. Rezerwa obowiązkowa, to ograniczenie dysponowania depozytami w banku. Dzisiaj rezerwa wynosi 3%. Śródki z rezerwy są przechowywane w NBP i jest ona oprocentowana. NBP ma możliwość różnicowania rezerwy na różne rodzaje depozytów. Zdarzają się jednak sytuacje, kiedy rezerwy nie trzeba tworzyć:
+    - jeśli są to środki pozyskane z papierów wartościowych, które są zabezpieczone hipotecznie na okres powyżej 5 lat
+    - środki pozyskane od innego banku
+    - od środków pozyskanych z zagranicy na conajmniej 2 lata
+ Poza tym, w momencie obliczania rezerwy kwota wolna wynosi 500 000 euro. W ustawie określono również górną granicę rezerwy:
+    - jeśli są to wkłady na żądanie - nie większa niż 30%
+    - od lokat terminiowych - nie większa niż 20%
+Bank może być zwolniony z rezerwy tylko wtedy, gdy rozpoczął proces naprawczy. Proces naprawczy polega na tym, że bank musi wykonać wszystkie czynności, zeby przywrócić płynność finansową. Jeśli bank naliczy źle rezerwę, to płaci odsetki. Jest to najsilniejsze narzędzie oddziaływania na ilość pieniądza w obiegu kreowanego przez banki
+ - polityka depozytowo-kredytowa - czyli banki przychodzą do NBP i NBP udziela kredytu na warunkach NBP. 
+    Są dwa typy kredytów udzielanych przez NBP:
+    - lombardowy - najdroższy kredyt na rynku w relacjach między bankami (20% w 1998 roku, teraz jest 3%). Działa to tak, jak lombard.
+    - redyskonto weksli - weksel to papier gwarantujący, że ktoś komuś zapłaci. Kredyt tego rodzaju polega na tym, że bank ma weksel od kogoś i NBP daje kredyt pod ten weksel. Lista weksli od kogo NBP przyjmuje weksle jest na stronie NBP.
+    Jeśli bank nie zdołał ulokować swojego depozytu na rynku, może go złożyć w NBP, ale będzie to bardzo słabo oprocentowane (teraz 1%).
+
+Narzędzie perswazyjne:
+ - NBP regularnie przesyła informacje do banków informacje o sytuacji makroekonomicznej, a banki się nad tym zastanawiają i być może coś tam zmienią (bardzo milusie, delikatne podejście)
+
+Narzędzie inne:
+ - NBP może emitować papiery wartościowe kierowane do ludności (też się dzisiaj nie stosuje)
+
+Bank w pojęciu ustawy działa na prawie polski i jest licencjonowany przez KNF. Typy banków:
+ - państowowe
+ - komercyjne
+ - spółdzielcze
+
+Instytucje kredytowe - bank mający siedzibę w dowolnym państwie UE, był licencjonowany w którymś panstwie UE, a w Polsce może prowadzić oddział bez zgody KNF (zasada jednolitej licencji).
+
+Oddziały banków zagranicznych - bank, który działa poza UE, jest licencjonowany w paśtwie poza UE, u nas musi mieć zgodę na działanie KNF.
+
+I TO WSZYSTKO MOŻNA NAZWAĆ POJĘCIEM BANKU! NBP oddziałuje na to wszystko, ale też na SKOK i KSKOK (od dwóch lat). Providenty i inneg Woonga.com to są parabanki, które nie podlegają systemowi bankowemu.
