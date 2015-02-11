@@ -1,5 +1,7 @@
 # Giełda Papierów Wartościowych
 
+*To był wykład, który był o wchodzeniu na giełdę, nie będzie go na egzaminie, więc notatek nie ma :)*
+
 ## Obowiązki GPW
   
 1. koncantracja popytu i podaży
