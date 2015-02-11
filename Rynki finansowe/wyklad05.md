@@ -1,54 +1,55 @@
-Banki
-=====
-Definicja banku z art. 2 Ustawy Prawo Bankowe
-Bank jest osobą prawną utworzoną zgodnie z przepisami ustaw działającą na podstawie zezwoleń uprawniających do wykonywania czynności bankowych obciażajacych ryzykiem środki powierzone pod jakimkolwiek tytułem zwrotnym.
-Bank (etym. ławka, stół) i kasa to słowa zastrzeżone dla podmiotów działających na bazie Ustwy Prawo Bankowe.
-// Rodzaje banków:
-// - banki komercyjne - są spółkami ackyjnymi, podstawowym aktem prawnym jest Kodesk Spółek Handlowych i ustawa prawo bankowe
-// - banki spółdzielcze - prawo spółdzielcze, ustawa Prawo Bankowe, ustawa o bankach spółdzielczych
-// - banki państwowe - w Polsce jest tylko jeden i mamy go w dupie
+# Banki
+
+### Definicja banku z art. 2 Ustawy Prawo Bankowe
+
+**Bank** jest osobą prawną utworzoną zgodnie z przepisami ustaw działającą na podstawie zezwoleń uprawniających do wykonywania czynności bankowych obciażajacych ryzykiem środki powierzone pod jakimkolwiek tytułem zwrotnym. Bank (etym. ławka, stół) i kasa to słowa zastrzeżone dla podmiotów działających na bazie Ustwy Prawo Bankowe.
 
 Meh, ogólnie notatka na kartce.
 
-czynności zastrzeżone wyłącznie dla banków (tzw. czynności bankowe sensu stricto)[4]:
-    - przyjmowanie wkładów pieniężnych płatnych na żądanie lub z nadejściem oznaczonego terminu oraz prowadzenie rachunków tych wkładów;
-    - prowadzenie innych rachunków bankowych;
-    - udzielanie kredytów;
-    - udzielanie i potwierdzanie gwarancji oraz otwieranie i potwierdzanie akredytyw;
-    - emitowanie bankowych papierów wartościowych;
-    - przeprowadzenie bankowych rozliczeń pieniężnych;
-    - wykonywanie innych czynności przewidzianych wyłącznie dla banku w odrębnych ustawach
-czynności dozwolone także niektórym podmiotom niebankowym (tzw. czynności bankowe sensu largo)[5]:
-    - udzielanie pożyczek pieniężnych;
-    - operacje czekowe i wekslowe oraz operacje, których przedmiotem są warranty;
-    - świadczenie usług płatniczych oraz wydawanie pieniądza elektronicznego;
-    - terminowe operacje finansowe;
-    - nabywanie i zbywanie wierzytelności pieniężnych;
-    - przechowywanie przedmiotów i papierów wartościowych oraz udostępnianie skrytek sejfowych;
-    - prowadzenie skupu i sprzedaży wartości dewizowych;
-    - udzielanie i potwierdzanie poręczeń;
-    - wykonywanie czynności zleconych, związanych z emisją papierów wartościowych;
-    - pośrednictwo w dokonywaniu przekazów pieniężnych oraz rozliczeń w obrocie dewizowym.
-inne czynności:
-    - obejmowanie lub nabowywanie akcjie i prawa z akcji, udziałów innej osoby prawnej i jednostek uczestnictwa w funduszach inwestycyjnych
-    - zaciąganie zobowiązań związanych z emisją papierów wartościowych
-    - dokonywanie obrotu papierami wartościowymi
-    - dokonywanie na warunkach uzgonionych z dłużnikiem zamiany wierzytelności na składniki majątku dłużnika
-    - nabywanie i zbywanie nieruchomości
-    - świadczenie usług konsultacyjno-doradczych w sprawach finansowych
-    - świadczenie innych usuług finansowych
-    - wykonywanie innych czynności, jeżeli przepisy odrębnych ustwaw uprawniających je do tego
+Czynności zastrzeżone wyłącznie dla banków (tzw. czynności bankowe sensu stricto)[4]:
+
+- przyjmowanie wkładów pieniężnych płatnych na żądanie lub z nadejściem oznaczonego terminu oraz prowadzenie rachunków tych wkładów;
+- prowadzenie innych rachunków bankowych;
+- udzielanie kredytów;
+- udzielanie i potwierdzanie gwarancji oraz otwieranie i potwierdzanie akredytyw;
+- emitowanie bankowych papierów wartościowych;
+- przeprowadzenie bankowych rozliczeń pieniężnych;
+- wykonywanie innych czynności przewidzianych wyłącznie dla banku w odrębnych ustawach
+
+Czynności dozwolone także niektórym podmiotom niebankowym (tzw. czynności bankowe sensu largo)[5]:
+
+- udzielanie pożyczek pieniężnych;
+- operacje czekowe i wekslowe oraz operacje, których przedmiotem są warranty;
+- świadczenie usług płatniczych oraz wydawanie pieniądza elektronicznego;
+- terminowe operacje finansowe;
+- nabywanie i zbywanie wierzytelności pieniężnych;
+- przechowywanie przedmiotów i papierów wartościowych oraz udostępnianie skrytek sejfowych;
+- prowadzenie skupu i sprzedaży wartości dewizowych;
+- udzielanie i potwierdzanie poręczeń;
+- wykonywanie czynności zleconych, związanych z emisją papierów wartościowych;
+- pośrednictwo w dokonywaniu przekazów pieniężnych oraz rozliczeń w obrocie dewizowym.
+
+Inne czynności:
+
+- obejmowanie lub nabowywanie akcjie i prawa z akcji, udziałów innej osoby prawnej i jednostek uczestnictwa w funduszach inwestycyjnych
+- zaciąganie zobowiązań związanych z emisją papierów wartościowych
+- dokonywanie obrotu papierami wartościowymi
+- dokonywanie na warunkach uzgonionych z dłużnikiem zamiany wierzytelności na składniki majątku dłużnika
+- nabywanie i zbywanie nieruchomości
+- świadczenie usług konsultacyjno-doradczych w sprawach finansowych
+- świadczenie innych usuług finansowych
+- wykonywanie innych czynności, jeżeli przepisy odrębnych ustwaw uprawniających je do tego
 
 Żródło: http://pl.wikipedia.org/wiki/Bank <- rodział "Czynności bankowe"
 
-Kryteria klasyfikacji banków
-============================
-    - lokalizacja siedziby i centrali banku
-        + banki krajowe (centrala i siedziba w Polsce) - licencja KNF
-        + oddziały banków zagranicznych (mają siedziby i centrale poza granicami UE, tam są też licencjonowane). W Polsce takie banki mogą prowadzić działalność w dwóch formach: oddziału i przedstawicielstwa, ale dopiero po uzyskaniu zgody KNF. Na dzień dzisiejszy jest 0 oddziałów i 17 przedstawicielstw. Oddział to normalne prowadzenie działalności bankowej, natomiast przedstawicielstwo jest po to, żeby prowadzić działalność marketingowo-reklamową.
-        + oddziały instytucji kredytowych - banki mające siedziby i centrale w państwach UE. Mogą u nas działać transgranicznie, tworząc oddział lub przedstawicielstwo - nie muszę mieć na to zgody KNF, wystarczy ją o tym poinformować. Jest to tzw zasada jednolitej licencji - jedna licencja w kraju UE pozwala na prowadzenie działalności w całej UE.
-    - formy organizacyjno-prawne
-        + komercyjne - są spółkami ackyjnymi, podstawowym aktem prawnym jest Kodesk Spółek Handlowych i ustawa prawo bankowe. Najstarszym bankiem komercyjnym jest Citi Bank Handlowy.
-        + spółdzielcze
-        + państwowe
-    - zakres wykonywanych czynności
+### Kryteria klasyfikacji banków
+
+- lokalizacja siedziby i centrali banku
+    - banki krajowe (centrala i siedziba w Polsce) - licencja KNF
+    - oddziały banków zagranicznych (mają siedziby i centrale poza granicami UE, tam są też licencjonowane). W Polsce takie banki mogą prowadzić działalność w dwóch formach: oddziału i przedstawicielstwa, ale dopiero po uzyskaniu zgody KNF. Na dzień dzisiejszy jest 0 oddziałów i 17 przedstawicielstw. Oddział to normalne prowadzenie działalności bankowej, natomiast przedstawicielstwo jest po to, żeby prowadzić działalność marketingowo-reklamową.
+    - oddziały instytucji kredytowych - banki mające siedziby i centrale w państwach UE. Mogą u nas działać transgranicznie, tworząc oddział lub przedstawicielstwo - nie muszę mieć na to zgody KNF, wystarczy ją o tym poinformować. Jest to tzw zasada jednolitej licencji - jedna licencja w kraju UE pozwala na prowadzenie działalności w całej UE.
+- formy organizacyjno-prawne
+    - komercyjne - są spółkami ackyjnymi, podstawowym aktem prawnym jest Kodesk Spółek Handlowych i ustawa prawo bankowe. Najstarszym bankiem komercyjnym jest Citi Bank Handlowy.
+    - spółdzielcze
+    - państwowe
+- zakres wykonywanych czynności
