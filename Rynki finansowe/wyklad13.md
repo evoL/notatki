@@ -7,7 +7,7 @@ Bezpieczny — w normalnych warunkach, przestrzegając aktów regulujących jeg
 
 Bazylejski Komitet Nadzoru Bankowego (zał. 1974) zakładał, co zrobić, żeby utrzymać stabilność systemu. Głównym ustaleniem było to, że nadzór sprawuje państwo macierzyste, ale oddział banku przyjmuje również zasady działania państwa, w którym działa.
 
-## Modele nadzoru
+### Modele nadzoru
 
 Nadzór może być _sektorowy_ lub _zintegrowany_. Zintegrowany nadzór oznacza, że jest jeden organ nad wszystkimi pionami systemu.
 
@@ -23,7 +23,7 @@ Komisja Nadzoru Finansowego nadzoruje wszystko. Ma także _nadzór uzupełniają
 - grupę kapitałową
 - konglomeraty finansowe
 
-## Funkcje KNF
+### Funkcje KNF
 
 - **kontrolno-nadzorcza** — ustalenie stanu faktycznego występującego w danej instytucji i porównanie go ze stanem oczekiwanym (wskazanym w aktach prawnych). Może ingerować w działalność podmiotu kontrolowanego za pomocą różnych narzędzi (przede wszystkim o charakterze o charakterze administracyjnym).
   - **reglamentowanie** — dopuszczenie do działania w jakimś segmencie rynku finansowego,
@@ -34,13 +34,13 @@ Komisja Nadzoru Finansowego nadzoruje wszystko. Ma także _nadzór uzupełniają
 - **informacyjna**
 - **legislacyjna**
 
-## System nadzoru w UE
+### System nadzoru w UE
 
 - zasada "nadzór państwa macierzystego"
 - zasada wzajemnego uznania
 - współpraca i wymiana informacji
 
-## Przykładowe pytania
+### Przykładowe pytania
 
 - co to jest Bazylejski Komitet Nadzoru
 - jakie funkcje spełnia KNF
