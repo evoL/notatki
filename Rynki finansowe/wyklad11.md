@@ -1,0 +1,52 @@
+# Krajowy Depozyt Papierów Wartościowych
+
+### Zadania KDPW
+
+- dematerializacja instrumentów finansowych 
+- prowadzenie rozrachunku transakcji
+- pilnowanie bilansu
+- realizacja zobowiązań emitentów wobec uprawionych z papierów wartościowych
+- prowadzenie Systemu Rekompensat Dla Inwestorów (od 2011)
+
+### Dematerializacja instrumentów finansowych
+
+Na giełdzie papierów wartościowych operujemy papierami zdematerializowanymi, więc trzeba takie papiery zdematerializować.
+
+**Przykład:**
+1. (seria A) prowadzę firmę i wypuszczam pierwszą serię akcji imiennych
+2. (seria B) wypuszczamy drugą serię, tym razem na okaziciela
+3. (seria C)ale zarząd też chce mieć jakąś władzę, więc emitujemy trzecią serię akcji uprzywilejowanych, specjelnie dla zarządu
+4. (seria D)chcemy się rozwijać, więc emitujemy akcje zwykłe, na okaziciela, kierujemy je do szerokiego grona akcjonariuszy, czyli przeprowadzamy ofertę publiczną
+
+Z tych wszystkich na giełdę mog wprowadzić tylko serię B i D, bo nie możemy wprowadzać akcji imiennych czy na okaziciela. Krajowy depozyt papierów wartościowych na podstawie listu księgowego zakłada mi konto: "konto depozytowe", zawierające dane o naszych akcjach. Są tam informacje o *wszystkich* akcjach, nie tylko tych, którymi mozemy obracać na giełdzie. Dematerializacja, to zapisanie informacji o akcjach w systemie bankowym.
+
+Domy maklerskie też mają konta depozytowe, jest w nich zapisane, które akcje posiadają inwestorzy danego domu maklerskiego (czyli, że np. inwestor x zakupił w domu maklerskim PEKAO 50000 akcji naszej firmy z serii D)
+
+### Prowadzenie rozrachunku transakcji
+
+KDPW ustala wzajemne zobowiązania odnoszące się do ilości papierów wartościowych. Innym słowem rozrachunek to ustalenie po każdym dniu giełdy kto i ile musi "przelać" papierów wartościowych. 
+
+### Pilnowanie bilansu
+
+KDPW pilnuje, czy ilość papierów wartościowych wyemitowanych przez firmy jest równa ilości papierów wartościowych kupionych przez domy maklerskie (konkretnie przez inwestorów).
+
+Notka na boku:
+- rozrachunek dotyczy papierów wartościowych
+- rozliczenie dotyczy środków płatniczych
+
+### Realizacja zobowiązań emitentów wobec uprawionych z papierów wartościowych
+ 
+Mamy dwa rodzaje zobowiązań:
+
+- mające charakter pieniężny
+  - wypłata dywidendy (fakultatywne)
+  - oprocentowanie (fakultatywne)
+- nie mające charakteru pieniężnego
+  - wymiana papierów wartościowych (split i scalanie) (obligatoryjne)
+  - asymilacja emisji - wprowadzenie akcji na giełdę (obligatoryjne)
+  - wycofanie papierów wartościowych (obligatoryjne)
+  - zamiana papierów wartościowych na akcje (obligatoryjne)
+
+### Prowadzenie Systemu Rekompensat Dla Inwestorów (od 2011)
+
+Każdy dom i biuro maklerskie obligatorynie należą do tego Systemu. Fakultatywnie mogą należeć zagraniczne firmy inwestycyjne. Domy i biura maklerskie wnoszą opłaty, co kwartał i są one uzależnione od wielkości biura maklerskiego. To są środki, z których potem pokrywane są straty, i KDPW zarządza nimi (tzn. inwestuje w bezpieczne intrumenty finansowe).
