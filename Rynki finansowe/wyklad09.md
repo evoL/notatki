@@ -6,12 +6,13 @@ Schemat rynku:
 - Krajowy Depozyt Papierów Wartościowych - najważniejszą funkcją jest rozliczanie i rozrachunek transakcji
 - firmy inwestycyjne (domy maklerskie)
 
-Nad wszystkim sprawuje nadzór Komisja Nadzoru Finansowego. Po jednej stronie tego rynku stoją emitenci, po drugiej inwestorzy.
+Nad wszystkim sprawuje nadzór Komisja Nadzoru Finansowego. Po jednej stronie tego rynku stoją **emitenci**, po drugiej **inwestorzy**.
 
 ## Firma inwestycyjna
-Firma inwestycyjna - podmiot, za pomocą którego możemy kupować i sprzedawać instrumenty notowane na giełdzie. Na naszej giełdzie jest notowane wiele instrumentów finansowych (akcje, certyfikaty, kontrakty na indeksy, na waluty i wiele, wiele więcej). Firma inwestycyjna to podmiot uprawniony do wykonanaia pewnych czynności i te czynności są zastrzeżone dla nich (żaden inny podmiot nie może ich wykonywać).
 
-### Usługi zastrzeżone
+**Firma inwestycyjna** to podmiot, za pomocą którego możemy kupować i sprzedawać instrumenty notowane na giełdzie. Na naszej giełdzie jest notowane wiele instrumentów finansowych (akcje, certyfikaty, kontrakty na indeksy, na waluty i wiele, wiele więcej). Firma inwestycyjna to podmiot uprawniony do wykonanaia pewnych czynności i te czynności są zastrzeżone dla nich (żaden inny podmiot nie może ich wykonywać).
+
+### Usługi zastrzeżone dla firmy inwestycyjnej
 
 - przyjmowanie, przekazywanie i realizacja zleceń (brokerka). Zlecenie to informacja co chcę kupic, ile chcę zapłacić, jakie papiery chcę kupić i w jakim terminie. Przekazywanie to przesłanie na giełdę. Realizacja to sytuacja w której po zawarciu transakcji na giełdzie firma inwestycyjna zapisuje transakcję na naszym rachunku. **Nikt** inny poza firmami inwestycyjnymi nie może tej czynności wykonywać.
 
@@ -22,8 +23,8 @@ Firma inwestycyjna - podmiot, za pomocą którego możemy kupować i sprzedawać
 - oferowanie instrumentów finansowych. Firma inweystycyjna pośredniczy pomiędzy emitentem a KNF, a później pośredniczy pomiędzy emitentem a inwestorami na tzw. rynku pierwotnym. **Nikt** inny poza firmami inwestycyjnymi nie może tej czynności wykonywać.
 
 - subemisja. Gwarantowanie dojścia emisji do skutku. Rodzaje emisji:
-  + inwestycyjna - emitent podpisuję umowę z instytucją (domem maklerskim, bankiem, fundusz inwestycyjny, fundusze emerytalny). i w razie gdy emisja nie dojdzie do skutku, to ta instytucja zbiera resztę. Jest to odpłatne ofc.
-  + usuługowa - spółka podpisuje umowę, która polega na tym, że subemitent obejmuje całą emisję i to on już rozprowadza te akcje na rynku.
+  - inwestycyjna - emitent podpisuję umowę z instytucją (domem maklerskim, bankiem, fundusz inwestycyjny, fundusze emerytalny). i w razie gdy emisja nie dojdzie do skutku, to ta instytucja zbiera resztę. Jest to odpłatne ofc.
+  - usuługowa - spółka podpisuje umowę, która polega na tym, że subemitent obejmuje całą emisję i to on już rozprowadza te akcje na rynku.
 
 - prowadzenie alternatywnego systemu obrotu. Na giełdzie mamy dwa rynki: regulowany i alternatywny. Alternatywny jest dla małych spółek (do 20 mln obrotu (?)). Taki rynek alternatywny może założyć sobie firma inwestycyjna. Ona wtedy odpowiada za cały ten rynek. Żadna firma tego dzisiaj nie prowadzi, bo to trudne, kosztowne i wogóle nikomu się nie chce. Rynek alternatywny moze prowadzić firma inwestycyjna i giełdy.
 
@@ -41,11 +42,11 @@ Firma inwestycyjna - podmiot, za pomocą którego możemy kupować i sprzedawać
 ### Podział firmy inwestycyjnych
 
 - krajowe (licencji udziela KNF, siedziby firm są w Polsce)
-  + domy maklerskie
-  + biura maklerskie
+  - domy maklerskie
+  - biura maklerskie
 - zagraniczne
-  + zagraniczne firmy inwestycyjne (działają na zasadzie jednolitego paszportu)
-  + zagraniczne osoby prawne
+  - zagraniczne firmy inwestycyjne (działają na zasadzie jednolitego paszportu)
+  - zagraniczne osoby prawne
 
 **Domy maklerskie** to podmioty działające w formie spółek (na polskim rynku są to zwykle spółki akcyjne). Mogą to być zatem instytucje prowadzone przez banki, ale również prywatne.
 
@@ -62,7 +63,7 @@ Firma inwestycyjna - podmiot, za pomocą którego możemy kupować i sprzedawać
 - oddział
 - przedstawicielstwo
 
-## Różne
+### Różne
 
 **Makler** to osoba, która zdała egzamin przed KNF obejmujący wszystkie treści o rynku finansowym. Jest w zasadzie odpowiedzialny za sprawdzanie poprawności i zatwierdzanie zleceń.
 
@@ -74,23 +75,21 @@ Firma inwestycyjna - podmiot, za pomocą którego możemy kupować i sprzedawać
 
 # Egzamin
 
-## Egzaminy na wydziale prawa
+### Egzaminy na wydziale prawa
 
 - 13 lutego, godz. 15, sala 3D
 - 13 lutego, godz. 17, sala 3D
 - 14 lutego, godz. 9, sala 318
 
-## Poprawki
+### Poprawki
 
 - 20 lutego, godz. 11, sala 318A
 - 20 lutego, godz. 13, sala 2D
 - 22 lutego, godz. 9, sala 301C
 
-## Z czego się przygotować
+### Czego nie trzeba umieć na egzamin?
 
-???
-
-## Z czego nie
+*rozdziały dotyczą książki Urszuli Banaszczak-Soroki "Rynki finansowe"*
 
 - rozdział 6
 - rozdział 7, punkt 7.2, 7.3
